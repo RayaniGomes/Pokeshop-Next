@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+root {
+  --amarelo-claro: #EEBB3B;
+  --amarelo-escuro: #D6962A;
+  --claro: #FEFEF9;
+  --escuro: #1E1E1E;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--claro);
+}
