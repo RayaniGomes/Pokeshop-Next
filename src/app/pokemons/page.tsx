@@ -1,51 +1,53 @@
-import LitsPokemons from "@/(components}/ListPokemons"
+import LitsPokemons from "@/(components)/ListPokemons"
 import api from "@/service/api"
-import { types } from "util"
+
+interface Pokemon {
+    name: string;
+    url: string;
+}
+
+interface PokemonType {
+    type: {
+        name: string;
+    };
+}
+
+interface PokemonDetails {
+    name: string;
+    types: string[];
+    image: string;
+}
 
 export default async function Pokemons() {
-    // const [pokemons, setPokemons] = useState([])
-    // const [types, setTypes] = useState([])
-    // const [imagens, setImagens] = useState([])
-    const dataPokemon: any = []
+    const dataPokemon: Pokemon[] = [];
 
-    const res = await api.get(`https://pokeapi.co/api/v2/pokemon?limit=10&offset=0`)
+    await api.get<{ results: Pokemon[] }>(`pokemon?limit=10&offset=0`)
         .then(response => {
-            // console.log(response.data)
-            dataPokemon.push(response.data.results)
+            dataPokemon.push(...response.data.results);
         })
-        .catch(error => console.log(error))
-    
-        
-    console.log(dataPokemon)
-        
-    const pokemonDetails = dataPokemon[0].map((element: any) => {
-        
-            return element.name
-    });
+        .catch(error => console.log(error));
 
-    console.log(pokemonDetails)
+    const pokemonDetails: PokemonDetails[] = [];
 
-        // api.get('https://pokeapi.co/api/v2/pokemon?limit=10&offset=0')
-        //     .then(response => { 
-        //         setPokemons(response.data.results)
+    for (const pokemon of dataPokemon) {
+        await api.get<{ name: string; types: PokemonType[]; sprites: { other: { dream_world: { front_default: string } } } }>(pokemon.url)
+            .then(detailsResponse => {
+                const { name, types, sprites } = detailsResponse.data;
 
-        //         const urls = response.data.results.map((pokemonImagem: {url: string}) =>
-        //             `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${pokemonImagem.url.split('/')[6]}.svg`
-        //         )
+                const pokemonTypes = types.map((typeInfo) => typeInfo.type.name);
 
-        //         setImagens(urls)
-        //     })
-        //     .catch(error => console.log(error))
-    
-    // function getTypos() {
-    //     api.get('https://pokeapi.co/api/v2/type')
-    //         .then(response => setTypes(response.data.results))
-    //         .catch(error => console.log(error))
-    // }
-    
-    
+                pokemonDetails.push({
+                    name,
+                    types: pokemonTypes,
+                    image: sprites.other.dream_world.front_default,
+                });
+            })
+            .catch(error => console.log(error));
+    }
 
-    return(
+    console.log(pokemonDetails);
+
+    return (
         <LitsPokemons pokemons={pokemonDetails} />
-    )
+    );
 }
