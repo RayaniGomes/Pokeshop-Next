@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import "./globals.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import StyledComponentsRegistry from "./registry";
 
 const montserrat = Montserrat({ subsets: ["latin"] });
 
@@ -21,7 +23,11 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/img/logoNav.png" />
       </head>
-      <body className={montserrat.className}>{children}</body>
+      <body className={montserrat.className}>
+        <StyledComponentsRegistry>
+          {children}
+        </StyledComponentsRegistry>
+      </body>
     </html>
   );
 }

@@ -1,11 +1,11 @@
 import LitsPokemons from "@/(components)/ListPokemons"
-import { Pokemon, PokemonDetails, PokemonType } from "@/interfaces/interface";
+import { Pokemon, PokemonDetails, PokemonType } from "@/interfaces";
 import api from "@/service/api"
 
 export default async function Pokemons() {
     const dataPokemon: Pokemon[] = [];
 
-    await api.get<{ results: Pokemon[] }>(`pokemon?limit=10&offset=0`)
+    await api.get<{ results: Pokemon[] }>(`pokemon?limit=9&offset=0`)
         .then(response => {
             dataPokemon.push(...response.data.results);
         })
@@ -14,12 +14,23 @@ export default async function Pokemons() {
     const pokemonDetails: PokemonDetails[] = [];
 
     for (const pokemon of dataPokemon) {
-        await api.get<{ id: number; name: string; types: PokemonType[]; sprites: { other: { dream_world: { front_default: string } } } }>(pokemon.url)
+        await api.get<{
+            id: number;
+            name: string;
+            types: PokemonType[];
+            sprites: {
+                other: {
+                    dream_world: {
+                        front_default: string
+                    }
+                }
+            }
+        }>(pokemon.url)
             .then(detailsResponse => {
-                const { id, name, types, sprites } = detailsResponse.data;
+                const { id, name, types, sprites, } = detailsResponse.data;
 
                 const pokemonTypes = types.map((typeInfo) => typeInfo.type.name);
-                
+
                 const valorOriginal = Math.floor(Math.random() * 400) + 100;
 
                 pokemonDetails.push({

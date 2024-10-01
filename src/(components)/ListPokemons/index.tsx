@@ -1,10 +1,15 @@
 'use client'
 
-import { LitsPokemonsProps } from "@/interfaces/interface";
+import { LitsPokemonsProps } from "@/interfaces";
 import Card from "../card/page";
+import { CardsPokemon } from "../card/styled";
 
 export default function LitsPokemons({ pokemons }: LitsPokemonsProps) {
     return (
-        <Card pokemons={pokemons} />
+        <CardsPokemon>
+            {pokemons.map((pokemon) => (
+                <Card pokemon={pokemon} key={pokemon.id} />
+            ))}
+        </CardsPokemon>
     );
 }
