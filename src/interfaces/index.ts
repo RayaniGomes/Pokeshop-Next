@@ -3,18 +3,31 @@ export interface Pokemon {
     url: string;
 }
 
+export interface PokemonDetails {
+    id: number;
+    name: string;
+    types: string[];
+    image: string;
+    color: string;
+    evolutions: string[];
+    imageEvolutions: string[];
+    moves: string[];
+    valorOriginal: number;
+}
+
 export interface PokemonType {
     type: {
         name: string;
     };
 }
 
-export interface PokemonDetails {
-    id: number;
-    name: string;
-    types: string[];
-    image: string;
-    valorOriginal: number;
+export interface PokemonMoves {
+    move: {
+        name: string;
+    };
+}
+export interface EvolutionImages {
+    [evolution: string]: string;
 }
 
 export interface LitsPokemonsProps {

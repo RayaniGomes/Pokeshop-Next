@@ -1,5 +1,5 @@
 import { LitsPokemonsProps, PokemonDetails } from "@/interfaces";
-import { BodyInfo, CardPokemon, CardsPokemon, FooterInfo, ImagemCard, InfoCard, TitleCard, Typo } from "./styled";
+import { BodyInfo, CardPokemon, FooterInfo, ImagemCard, InfoCard, TitleCard, Typo } from "./styled";
 import Image from "next/image";
 import Modal from "../modal";
 import { useState } from "react";
@@ -17,11 +17,10 @@ export default function Card({ pokemon }: PropsCard) {
     };
     const handleCloseModal = () => {
         setIsModalOpen(false);
-    };
-
+    }; 
 
     return (
-        <CardPokemon>
+        <CardPokemon bgColor={pokemon.color}>
             <ImagemCard>
                 {pokemon.image ? (
                     <Image

@@ -8,28 +8,32 @@ export const CardsPokemon = styled.div`
     width: 71.875rem;
     height: 100%;
     margin: 5rem auto;
-    gap: 2rem;
+    gap: 3rem 2rem;
 `
-export const CardPokemon = styled.div`
+interface PropsCardPokemon {
+    bgColor: string;
+}
+
+export const CardPokemon = styled.div<PropsCardPokemon>`
     display: flex;
     align-items: center;
     flex-direction: column;
     width: 18.75rem;
     height: 22rem;
     border-radius: .625rem;
-    background-color: var(--escuro);
-    box-shadow: 5px 5px 10px 0px #00000040;
-` as React.ComponentType<{ children: React.ReactNode }>;
+    background-color: ${({ bgColor }) => bgColor || "var(--escuro)"};
+    box-shadow: 5px 20px 10px 0px #00000040;
+`
 
 export const ImagemCard = styled.div`
-    width: 11.25rem;
-    height: 11.25rem;
+    width: 12rem;
+    height: 12rem;
+    padding: .5rem;
     object-fit: cover;
 `
 
 export const InfoCard = styled.div`
     width: 100%;
-    height: 100%;
     background-color: var(--claro);
     border-bottom-left-radius: .625rem;
     border-bottom-right-radius: .625rem;
