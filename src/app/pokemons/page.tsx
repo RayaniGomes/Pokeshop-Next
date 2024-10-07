@@ -1,7 +1,6 @@
 import LitsPokemons from "@/(components)/ListPokemons"
-import { EvolutionImages, Pokemon, PokemonDetails, PokemonMoves, PokemonType } from "@/interfaces";
+import { Pokemon, PokemonDetails, PokemonMoves, PokemonStats, PokemonType } from "@/interfaces";
 import api from "@/service/api"
-import { error } from "console";
 
 export default async function Pokemons() {
     const dataPokemon: Pokemon[] = [];
@@ -47,9 +46,10 @@ export default async function Pokemons() {
                 }
             };
             moves: PokemonMoves[];
+            stats: PokemonStats[];
         }>(pokemon.url)
             .then(async(detailsResponse) => {
-                const { id, name, types, sprites, moves} = detailsResponse.data;
+                const { id, name, types, sprites, moves, stats} = detailsResponse.data;
                 console.log(moves);
                 const pokemonTypes = types.map((typeInfo) => typeInfo.type.name);
 
@@ -62,6 +62,20 @@ export default async function Pokemons() {
                 
                 const pokemonMoves = moves.slice(0, 10).map((moveInfo) => moveInfo.move.name);
 
+                const pokemonStats = stats.map(statInfo => ({
+                    name: statInfo.stat.name,
+                    base_stat: statInfo.base_stat
+                }));
+
+                let weaknesses: string[] = [];
+                for (const typeInfo of types) {
+                    const typeResponse = await api.get(typeInfo.type.url);
+                    const damageRelations = typeResponse.data.damage_relations;
+
+                    weaknesses.push(...damageRelations.double_damage_from.map((typeWeakness: any) => typeWeakness.name));
+                }
+                
+
                 const valorOriginal = Math.floor(Math.random() * 400) + 100;
 
                 pokemonDetails.push({
@@ -73,6 +87,8 @@ export default async function Pokemons() {
                     evolutions,
                     imageEvolutions,
                     moves: pokemonMoves,
+                    stats: pokemonStats,
+                    weaknesses,
                     valorOriginal,
                 });
             })

@@ -1,6 +1,6 @@
 import { PokemonDetails } from "@/interfaces";
-import { Modal } from "react-bootstrap";
-import { Evolution, ModalBody, ModalTitle, Movimentos, SessionEvolution } from "./styled";
+import { Modal, ProgressBar } from "react-bootstrap";
+import { Atributos, AtributosName, Evolution, Lista, ModalBody, ModalTitle, Progress, SessionEvolution, Table, TableBody } from "./styled";
 import Image from "next/image";
 
 interface PropModal {
@@ -17,14 +17,22 @@ export default function ModalCard({ pokemon, showModal, handleClose }: PropModal
                 <ModalTitle>{pokemon.name}</ModalTitle>
             </Modal.Header>
             <ModalBody>
-            <ModalTitle>Movimentos</ModalTitle>
-                <Movimentos>
+                <ModalTitle>Fraquezas</ModalTitle>
+                <Lista>
+                    {pokemon.weaknesses && pokemon.weaknesses.map((weakness, index) => {
+                        return <ul key={index}>
+                            <li>{weakness}</li>
+                        </ul>
+                    })}
+                </Lista>
+                <ModalTitle>Movimentos</ModalTitle>
+                <Lista>
                     {pokemon.moves.map((move, index) => { 
                         return <ul key={index}>
                             <li>{move}</li>
                         </ul>
                     })}
-                </Movimentos>
+                </Lista>
                 <ModalTitle>Evolução</ModalTitle>
                 <Evolution>
                     {pokemon.evolutions.map((evolution, index) => {
@@ -35,8 +43,30 @@ export default function ModalCard({ pokemon, showModal, handleClose }: PropModal
                         </SessionEvolution>
                     })}
                 </Evolution>
+                <ModalTitle>Atribuições</ModalTitle>
+                <Atributos>  
+                    <Table>
+                        <TableBody>
+                            {pokemon.stats && pokemon.stats.map((stat, index) => {
+                                return (
+                                    <tr key={index}>
+                                        <AtributosName>{stat.name}</AtributosName>
+                                        <Progress progress={stat.base_stat}>
+                                            <ProgressBar 
+                                                now={stat.base_stat}
+                                                max={100}
+                                            />
+                                            <p>{stat.base_stat}</p>
+                                        </Progress>
+                                    </tr>
+                                )
+                            })} 
+                        </TableBody>
+                    </Table>
+            
+                </Atributos>
                 
             </ModalBody>
         </Modal>
-                );
+    );
 }

@@ -12,12 +12,18 @@ export interface PokemonDetails {
     evolutions: string[];
     imageEvolutions: string[];
     moves: string[];
+    stats: { 
+        name: string; 
+        base_stat: number 
+    }[];
+    weaknesses: string[];
     valorOriginal: number;
 }
 
 export interface PokemonType {
     type: {
         name: string;
+        url: string;
     };
 }
 
@@ -26,6 +32,17 @@ export interface PokemonMoves {
         name: string;
     };
 }
+
+export interface PokemonStats {
+    stat: {
+        name: string;
+        base_stat: number;
+    }
+
+    name: string;
+    base_stat: number;
+}
+
 export interface EvolutionImages {
     [evolution: string]: string;
 }
