@@ -26,6 +26,7 @@ export const Lista = styled.div`
 export const Evolution = styled.div`
     display: flex;
     text-transform: capitalize;
+    margin-bottom: 1rem;
 `
 
 export const SessionEvolution = styled.div`
@@ -34,12 +35,14 @@ export const SessionEvolution = styled.div`
     flex-direction: column-reverse;
     align-items: center;
     justify-content: space-around;
+    text-align: center;
 `
 export const Atributos = styled.div`
     width: 100%;
     background-color: var(--amarelo-escuro);
     border-radius: 10px;
     padding: 1rem;
+    margin-top: 1rem;
 `
 
 export const Table = styled.table`

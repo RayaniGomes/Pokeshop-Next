@@ -39,7 +39,6 @@ export default function ModalCard({ pokemon, showModal, handleClose }: PropModal
                         return <SessionEvolution key={index}>
                             <p><strong>{`${index + 1}`}º </strong>{evolution}</p>
                             <Image src={pokemon.imageEvolutions[index]} alt={pokemon.name} layout="fixed" width={120} height={120} />
-                            <p></p>
                         </SessionEvolution>
                     })}
                 </Evolution>
