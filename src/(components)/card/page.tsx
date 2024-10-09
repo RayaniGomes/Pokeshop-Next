@@ -1,7 +1,6 @@
-import { LitsPokemonsProps, PokemonDetails } from "@/interfaces";
+import { PokemonDetails } from "@/interfaces";
 import { BodyInfo, CardPokemon, FooterInfo, ImagemCard, InfoCard, TitleCard, Typo } from "./styled";
 import Image from "next/image";
-import Modal from "../modal";
 import { useState } from "react";
 import ModalCard from "../modal";
 

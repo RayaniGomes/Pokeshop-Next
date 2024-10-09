@@ -3,6 +3,13 @@ export interface Pokemon {
     url: string;
 }
 
+export interface RequestPokemon {
+    count: number;
+    next: string;
+    previous: string;
+    results: Pokemon[];
+}
+
 export interface PokemonDetails {
     id: number;
     name: string;
@@ -12,9 +19,9 @@ export interface PokemonDetails {
     evolutions: string[];
     imageEvolutions: string[];
     moves: string[];
-    stats: { 
-        name: string; 
-        base_stat: number 
+    stats: {
+        name: string;
+        base_stat: number
     }[];
     weaknesses: string[];
     valorOriginal: number;

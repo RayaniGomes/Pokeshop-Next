@@ -85,6 +85,7 @@ export const Progress = styled.td <PropsProgress>`
     justify-content: space-between;
     border-radius: 0px 10px 10px 0px;
     padding: .25rem .5rem;
+    gap: .5rem;
 
     div {
         width: ${({ progress }) => `${progress}%`};

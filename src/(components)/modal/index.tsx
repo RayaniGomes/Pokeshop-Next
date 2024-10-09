@@ -53,7 +53,6 @@ export default function ModalCard({ pokemon, showModal, handleClose }: PropModal
                                         <Progress progress={stat.base_stat}>
                                             <ProgressBar 
                                                 now={stat.base_stat}
-                                                max={100}
                                             />
                                             <p>{stat.base_stat}</p>
                                         </Progress>
