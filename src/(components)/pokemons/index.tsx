@@ -1,9 +1,8 @@
 "use client"
 import LitsPokemons from "@/(components)/listPokemons"
 import { Pagination } from "@/(components)/pagination";
-import { ApiPokemon, Pokemon, PokemonDetails, PokemonMoves, PokemonStats, PokemonType, RequestPokemon } from "@/interfaces";
+import { ApiPokemon, Pokemon, PokemonDetails, RequestPokemon } from "@/interfaces";
 import api from "@/service/api"
-import Image from "next/image";
 import { useEffect, useState } from "react";
 
 
@@ -130,9 +129,9 @@ export default function Pokemons() {
     }, [pokemon]);
 
     return (
-        <main>
-            <LitsPokemons pokemons={pokemonDetails.sort((a, b) => a.id - b.id)} />
+        <>
+            <LitsPokemons pokemons={pokemonDetails.sort((a, b) => (a.id ?? 0) - (b.id ?? 0))} />
             <Pagination currentPage={currentPage} totalPages={totalPages} pageClick={handlePageClick} />
-        </main>
+        </>
     );
 }

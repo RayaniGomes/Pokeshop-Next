@@ -5,7 +5,7 @@ import { useState } from "react";
 import ModalCard from "../modal";
 
 interface PropsCard {
-    pokemon: PokemonDetails
+    pokemon: PokemonDetails,
 }
 
 export default function Card({ pokemon }: PropsCard) {
@@ -53,7 +53,6 @@ export default function Card({ pokemon }: PropsCard) {
                             </div>
                         ))}
                     </Typo>
-
                 </BodyInfo>
                 <FooterInfo>
                     <h4>Por: R${pokemon.valorOriginal}</h4>

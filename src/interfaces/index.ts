@@ -10,6 +10,21 @@ export interface RequestPokemon {
     results: Pokemon[];
 }
 
+export interface ApiPokemon {
+    id: number;
+    name: string;
+    types: PokemonType[];
+    sprites: {
+        other: {
+            dream_world: {
+                front_default: string
+            }
+        }
+    };
+    moves: PokemonMoves[];
+    stats: PokemonStats[];
+}
+
 export interface PokemonDetails {
     id: number;
     name: string;
@@ -52,8 +67,4 @@ export interface PokemonStats {
 
 export interface EvolutionImages {
     [evolution: string]: string;
-}
-
-export interface LitsPokemonsProps {
-    pokemons: PokemonDetails[];
 }
