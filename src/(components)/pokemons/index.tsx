@@ -4,8 +4,7 @@ import { Pagination } from "@/(components)/pagination";
 import { ApiPokemon, Pokemon, PokemonDetails, RequestPokemon } from "@/interfaces";
 import api from "@/service/api"
 import { useEffect, useState } from "react";
-
-
+import PokemonTypes from "../pokemonTypes";
 
 export default function Pokemons() {
     const [pokemonDetails, setPokemonDetails] = useState<PokemonDetails[]>([]);
@@ -52,10 +51,10 @@ export default function Pokemons() {
             if (current.evolves_to.length >= 0) {
                 current = current.evolves_to[0];
                 const getImageEvolutions = await api.get(`pokemon/${speciesName}`)
-                .then((response) => {
-                    return response.data.sprites.other.dream_world.front_default 
-                })
-                .catch(error => { console.log(error); return error });
+                    .then((response) => {
+                        return response.data.sprites.other.dream_world.front_default
+                    })
+                    .catch(error => { console.log(error); return error });
                 imageEvolutions.push(getImageEvolutions);
             } else {
                 current = null;
@@ -125,11 +124,12 @@ export default function Pokemons() {
         if (pokemon && pokemon?.results?.length > 0) {
             extractPokemonDetails(pokemon.results);
         }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [pokemon]);
 
     return (
         <>
+            <PokemonTypes pokemons={pokemonDetails} />
             <LitsPokemons pokemons={pokemonDetails.sort((a, b) => (a.id ?? 0) - (b.id ?? 0))} />
             <Pagination currentPage={currentPage} totalPages={totalPages} pageClick={handlePageClick} />
         </>

@@ -7,7 +7,7 @@ export default function Pokedex() {
         <main>
             <h1>Pokedex</h1>
 
-            <PokemonTypes />
+  
 
             <Pokemons />
         </main>
