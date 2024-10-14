@@ -1,123 +1,39 @@
-import { PokemonDetails } from "@/interfaces";
+import api from "@/service/api";
 import Image from "next/image";
+import { useState } from "react";
+import Card from "../card";
+import { Container, Icones } from "./styled";
+import { BodyInfo, CardPokemon, FooterInfo, ImagemCard, InfoCard, TitleCard, Typo } from "../card/styled";
+import { PokemonDetails } from "@/interfaces";
+import ModalCard from "../modal";
+import { types } from "@/data/helps";
 
-interface PokemonNamesProps {
-    pokemons: PokemonDetails[];
+interface PokemonTypesProps {
+    func: (value : string) => void
+    limpeza: (value : string) => void
 }
 
-export default function PokemonTypes({ pokemons }: PokemonNamesProps) {
+export default function PokemonTypes({ func, limpeza }: PokemonTypesProps) {
 
-    const types = [
-        {
-            id: 1,
-            name: 'normal', 
-            image: '/img/iconTipos/normal.png'
-        },
-        {
-            id: 2,
-            name: 'fighting', 
-            image: '/img/iconTipos/fighting.png'
-        },
-        {
-            id: 3,
-            name: 'flying', 
-            image: '/img/iconTipos/flying.png'
-        },
-        {
-            id: 4,
-            name: 'poison', 
-            image: '/img/iconTipos/poison.png'
-        },
-        {
-            id: 5,
-            name: 'ground', 
-            image: '/img/iconTipos/ground.png'
-        },
-        {
-            id: 7,
-            name: 'bug', 
-            image: '/img/iconTipos/bug.png'
-        },
-        {
-            id: 17,
-            name: 'dark', 
-            image: '/img/iconTipos/dark.png'
-        },
-        {
-            id: 16,
-            name: 'dragon',
-            image: '/img/iconTipos/dragon.png'
-        },
-        {
-            id:13,
-            name: 'electric',
-            image: '/img/iconTipos/electric.png'
-        },
-        {
-            id: 18,
-            name: 'fairy', 
-            image: '/img/iconTipos/fairy.png'
-        },
-        
-        {
-            id: 10,
-            name: 'fire',
-            image: '/img/iconTipos/fire.png'
-        },
-        
-        {
-            id: 8,
-            name: 'ghost', 
-            image: '/img/iconTipos/ghost.png'
-        },
-        {
-            id: 12,
-            name: 'grass', 
-            image: '/img/iconTipos/grass.png'
-        },
-        
-        {   
-            id: 15,
-            name: 'ice', 
-            image: '/img/iconTipos/ice.png'
-        },
-        
-        {
-            id: 14,
-            name: 'psychic', 
-            image: '/img/iconTipos/psychic.png'
-        },
-        {
-            id: 6,
-            name: 'rock', 
-            image: '/img/iconTipos/rock.png'
-        },
-        {
-            id: 9,
-            name: 'steel', 
-            image: '/img/iconTipos/steel.png'
-        },
-        { 
-            id: 11,
-            name: 'water', 
-            image: '/img/iconTipos/water.png'
-        },
-    ];
+    // const cilcksFilter = (type: string) => {
+    //     func('');
+    //     limpeza('')
+    // }
 
     return (
-        <section>
-            <ul>
-                {pokemons.map((pokemon) => (
-                    <button key={pokemon.id}>
+        < Container>
+            <Icones>
+                {types.map((type) => (
+                    <button key={type.id} onClick={() => cilcksFilter(type.name)}>
                         <Image
-                            src={`/img/iconTipos/${pokemon.types[0]}.png`}
-                            alt={pokemon.types[0]}
+                            src={type.image}
+                            alt={type.name}
                             width={50}
                             height={50}
                         />
                     </button>
                 ))}
-            </ul>
-        </section>
+            </Icones>
+        </Container>
     );
 }

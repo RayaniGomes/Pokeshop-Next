@@ -5,13 +5,27 @@ import { ApiPokemon, Pokemon, PokemonDetails, RequestPokemon } from "@/interface
 import api from "@/service/api"
 import { useEffect, useState } from "react";
 import PokemonTypes from "../pokemonTypes";
+import { Mensagem } from "./steled";
 
 export default function Pokemons() {
     const [pokemonDetails, setPokemonDetails] = useState<PokemonDetails[]>([]);
     const [pokemon, setPokemon] = useState<RequestPokemon>({} as RequestPokemon);
     const [currentPage, setCurrentPage] = useState(1);
     const [totalPages, setTotalPages] = useState(1);
+    const [typePokemon, setTypePokemon] = useState('');
+    const [limparFiltro, setLimparFiltro] = useState();
     const itemsPorPage = 9;
+
+    const handleFilter = (typeName: string) => {
+        setTypePokemon(typeName);
+        const filterPokemon = pokemonDetails.filter(pokemon => pokemon.types.some(type => type === typeName));
+        setPokemonDetails(filterPokemon);
+    };
+
+    const handleClearFilter = () => {
+        setTypePokemon('');
+        setPokemonDetails(pokemonDetails);
+    };
 
     const handlePageClick = (direction: string) => {
         setCurrentPage(prevPage => {
@@ -27,7 +41,7 @@ export default function Pokemons() {
     const getPagination = (page: number = 1) => {
         api.get<RequestPokemon>(`pokemon?limit=${itemsPorPage}&offset=${(page - 1) * itemsPorPage}`)
             .then(response => {
-                console.log(response.data.results)
+                console.log(response.data)
                 setPokemon(response.data);
                 setTotalPages(Math.ceil(response.data.count / itemsPorPage));
             })
@@ -129,8 +143,16 @@ export default function Pokemons() {
 
     return (
         <>
-            <PokemonTypes pokemons={pokemonDetails} />
-            <LitsPokemons pokemons={pokemonDetails.sort((a, b) => (a.id ?? 0) - (b.id ?? 0))} />
+            <PokemonTypes func={handleFilter} limpeza={handleClearFilter}/>
+            {pokemonDetails.length > 0
+                ? <LitsPokemons pokemons={pokemonDetails.sort((a, b) => (a.id ?? 0) - (b.id ?? 0))} />
+                : 
+                <Mensagem>
+                    <button onClick={() => getPagination(currentPage)}>
+                        Nessa pagina não existe pokemon do tipo {typePokemon}
+                    </button>
+                </Mensagem>
+            }
             <Pagination currentPage={currentPage} totalPages={totalPages} pageClick={handlePageClick} />
         </>
     );
