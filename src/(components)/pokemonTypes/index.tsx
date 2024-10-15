@@ -1,30 +1,34 @@
-import api from "@/service/api";
+'use client'
 import Image from "next/image";
-import { useState } from "react";
-import Card from "../card";
-import { Container, Icones } from "./styled";
-import { BodyInfo, CardPokemon, FooterInfo, ImagemCard, InfoCard, TitleCard, Typo } from "../card/styled";
-import { PokemonDetails } from "@/interfaces";
-import ModalCard from "../modal";
+import { Embla, EmblaButtons, EmblaContainer, Icones } from "./styled";
 import { types } from "@/data/helps";
+import React, { useCallback } from 'react'
+import useEmblaCarousel from 'embla-carousel-react'
+
 
 interface PokemonTypesProps {
-    func: (value : string) => void
-    limpeza: (value : string) => void
+    func: (value: string) => void;
 }
 
-export default function PokemonTypes({ func, limpeza }: PokemonTypesProps) {
+export default function PokemonTypes({ func }: PokemonTypesProps) {
+    const [emblaRef, emblaApi] = useEmblaCarousel()
 
-    // const cilcksFilter = (type: string) => {
-    //     func('');
-    //     limpeza('')
-    // }
+    const scrollPrev = useCallback(() => {
+        if (emblaApi) emblaApi.scrollPrev()
+    }, [emblaApi])
+
+    const scrollNext = useCallback(() => {
+        if (emblaApi) emblaApi.scrollNext()
+    }, [emblaApi])
 
     return (
-        < Container>
+        <section>
             <Icones>
                 {types.map((type) => (
-                    <button key={type.id} onClick={() => cilcksFilter(type.name)}>
+                    <button
+                        key={type.id}
+                        onClick={() => func(type.name)}
+                    >
                         <Image
                             src={type.image}
                             alt={type.name}
@@ -34,6 +38,28 @@ export default function PokemonTypes({ func, limpeza }: PokemonTypesProps) {
                     </button>
                 ))}
             </Icones>
-        </Container>
+            <Embla ref={emblaRef} >
+                <EmblaContainer>
+                    {types.map((typeEmbla) => (
+                        <button
+                            key={typeEmbla.id}
+                            onClick={() => func(typeEmbla.name)}
+                        >
+                            <Image
+                                src={typeEmbla.image}
+                                alt={typeEmbla.name}
+                                width={50}
+                                height={50}
+                            />
+                        </button>
+                    ))}
+                </EmblaContainer>
+            </Embla>
+            {/* <EmblaButtons>
+                <button onClick={scrollPrev} className="bi bi-chevron-left" />
+                <button onClick={scrollNext} className="bi bi-chevron-right" />
+            </EmblaButtons> */}
+        </section>
     );
 }
+

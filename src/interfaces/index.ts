@@ -69,7 +69,6 @@ export interface EvolutionImages {
     [evolution: string]: string;
 }
 
-
 export interface TypesProps {
     id: number;
     name: string;

@@ -10,7 +10,6 @@ interface LitsPokemonsProps {
 export default function LitsPokemons({ pokemons }: LitsPokemonsProps) {
     return (
         <CardsPokemon>
-
             {pokemons.map((pokemon) => (
                 <Card pokemon={pokemon} key={pokemon.id} />
             ))}

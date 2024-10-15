@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import React from "react";
 
 export const CardsPokemon = styled.div`
     display: flex;
@@ -8,7 +7,12 @@ export const CardsPokemon = styled.div`
     width: 71.875rem;
     height: 100%;
     margin: 5rem auto;
-    gap: 3rem 2rem;
+    gap: 4rem ;
+
+    @media (max-width: 1024px) {
+        width: 100%;
+        height: 100%;
+    }
 `
 interface PropsCardPokemon {
     bgColor: string;
@@ -23,6 +27,11 @@ export const CardPokemon = styled.div<PropsCardPokemon>`
     border-radius: .625rem;
     background-color: ${({ bgColor }) => bgColor || "var(--escuro)"};
     box-shadow: 5px 20px 10px 0px #00000040;
+
+    @media (max-width: 1024px) {
+        width: 15rem;
+        height: auto;
+    }
 `
 
 export const ImagemCard = styled.div`
@@ -50,6 +59,13 @@ export const BodyInfo = styled.div`
     p{
         color: var(--amarelo-escuro);
     }
+
+    @media (ma-width: 1024px) {
+
+        p {
+            font-size: 12px;
+        }
+    }
 `
 
 export const TitleCard = styled.div`
@@ -69,6 +85,19 @@ export const TitleCard = styled.div`
         height: 30px;
         border-radius: 100%;
         padding: 0.25rem;
+    }
+
+    @media (max-width: 1024px) {
+        h3 {
+            font-size: 20px;
+        }
+
+        button {
+            width: 25px;
+            height: 25px;
+            font-size: 12px;
+            font-weight: 700;
+        }
     }
 `
 
@@ -95,5 +124,16 @@ export const FooterInfo = styled.div`
         font-weight: 700;
         padding: 0.25rem 1rem;
         border-radius: 0.5rem;
+    }
+
+    @media (max-width: 1024px) {
+        h4 {
+            font-size: 16px;
+        }
+
+        button {
+            font-size: 12px;
+            font-weight: 700;
+        }
     }
 `

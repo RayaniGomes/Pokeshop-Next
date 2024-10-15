@@ -5,7 +5,7 @@ import { ApiPokemon, Pokemon, PokemonDetails, RequestPokemon } from "@/interface
 import api from "@/service/api"
 import { useEffect, useState } from "react";
 import PokemonTypes from "../pokemonTypes";
-import { Mensagem } from "./steled";
+import { Mensagem, Voltar } from "./styled";
 
 export default function Pokemons() {
     const [pokemonDetails, setPokemonDetails] = useState<PokemonDetails[]>([]);
@@ -13,18 +13,12 @@ export default function Pokemons() {
     const [currentPage, setCurrentPage] = useState(1);
     const [totalPages, setTotalPages] = useState(1);
     const [typePokemon, setTypePokemon] = useState('');
-    const [limparFiltro, setLimparFiltro] = useState();
     const itemsPorPage = 9;
 
     const handleFilter = (typeName: string) => {
         setTypePokemon(typeName);
         const filterPokemon = pokemonDetails.filter(pokemon => pokemon.types.some(type => type === typeName));
         setPokemonDetails(filterPokemon);
-    };
-
-    const handleClearFilter = () => {
-        setTypePokemon('');
-        setPokemonDetails(pokemonDetails);
     };
 
     const handlePageClick = (direction: string) => {
@@ -143,10 +137,16 @@ export default function Pokemons() {
 
     return (
         <>
-            <PokemonTypes func={handleFilter} limpeza={handleClearFilter}/>
+            <PokemonTypes func={handleFilter}/>
             {pokemonDetails.length > 0
-                ? <LitsPokemons pokemons={pokemonDetails.sort((a, b) => (a.id ?? 0) - (b.id ?? 0))} />
-                : 
+                ? <>
+                    <LitsPokemons pokemons={pokemonDetails.sort((a, b) => (a.id ?? 0) - (b.id ?? 0))} />
+                    {pokemonDetails.length <9 
+                        && <Voltar onClick={() => getPagination(currentPage)}>
+                            <button>Voltar</button>
+                        </Voltar>}
+                </>
+                :
                 <Mensagem>
                     <button onClick={() => getPagination(currentPage)}>
                         Nessa pagina não existe pokemon do tipo {typePokemon}
