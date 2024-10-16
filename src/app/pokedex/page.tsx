@@ -1,14 +1,15 @@
-import Navbar from "@/(components)/navbar";
+'use client'; 
 import Pokemons from "@/(components)/pokemons";
+import Title from "@/(components)/title";
+import { PokedexPage } from "./styled";
+import Navbar from "@/(components)/navbar";
 
 export default function Pokedex() {
-    
-
     return (
-        <main>
-            {/* <Navbar /> */}
-            <h1>Pokedex</h1>
+        <PokedexPage>
+            <Navbar />
+            <Title Children="Pokedex" />
             <Pokemons />
-        </main>
+        </PokedexPage>
     );
 }

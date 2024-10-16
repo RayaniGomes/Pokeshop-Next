@@ -9,7 +9,10 @@ export const Mensagem = styled.h3`
     button {
         padding: .5rem;
         border-radius: 0.5rem;
+        margin: 0rem 1rem;
     }
+
+    @media (max-width: 1024px) {}
 `
 
 export const Voltar = styled.div`

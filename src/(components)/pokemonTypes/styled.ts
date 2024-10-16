@@ -1,4 +1,3 @@
-import exp from "constants";
 import styled from "styled-components";
 
 export const Icones = styled.div`
@@ -6,14 +5,15 @@ export const Icones = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: .5rem;
     padding: 1rem;
     margin: 0 auto;
+    gap: .5rem;
 
     button {
         background-color: transparent;
 
         :hover {
+            opacity: 0.6;
             transform: scale(1.2);
         }
     }
@@ -23,41 +23,45 @@ export const Icones = styled.div`
     }
 `
 
-export const Embla = styled.div`
-    @media (min-width: 1024px) {
-        display: none;
+export const EmblaCarousel = styled.div`
+    display: none;
+
+    @media (max-width: 1024px) {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        margin: 0 auto;
     }
+`
+
+export const Embla = styled.div`
     
     @media (max-width: 1024px) {
-        width: 90%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;    
-        margin: 0 auto;
-        padding: 1rem 0rem;
+        width: 99%;
+        padding: .5rem ;
+        margin: auto 0;
         overflow: hidden;
 
         button {
             background-color: transparent;
-            
             :hover {
                 transform: scale(1.2);
             }
             
         }
     }
-    `
+`
 
 export  const EmblaContainer = styled.div`
+    width: 10%;
     display: flex;
+    margin: 0 .25rem;
     gap: .5rem;
 `
+
 export const EmblaButtons = styled.div`
     color: var(--escuro);
-    width: 100%;
     display: flex;
-    align-items: center;
-    gap: .5rem;
     padding: 0rem 1rem;
     
     button {

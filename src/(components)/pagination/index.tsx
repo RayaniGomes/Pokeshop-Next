@@ -1,4 +1,3 @@
-'use client';
 import { PaginationContainer } from "./styled";
 
 interface PropsPagination {
@@ -10,13 +9,10 @@ interface PropsPagination {
 export const Pagination = ({ currentPage, totalPages, pageClick }: PropsPagination) => {
     return (
         <PaginationContainer className="pagination-conttext-center">
-            <button onClick={() => pageClick('prev')} disabled={currentPage === 1}>
-                <i className="bi bi-chevron-double-left" />
-            </button>
+            <button onClick={() => pageClick('prev')} disabled={currentPage === 1} className="bi bi-chevron-double-left" />
             <span> Página {currentPage} de {totalPages} </span>
-            <button onClick={() => pageClick('next')} disabled={currentPage === totalPages}>
-                <i className="bi bi-chevron-double-right" />
-            </button>
+            <button onClick={() => pageClick('next')} disabled={currentPage === totalPages} className="bi bi-chevron-double-right" />
+
         </PaginationContainer>
     );
 }

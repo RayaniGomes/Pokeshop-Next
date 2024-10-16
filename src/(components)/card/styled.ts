@@ -1,19 +1,5 @@
 import styled from "styled-components";
 
-export const CardsPokemon = styled.div`
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    width: 71.875rem;
-    height: 100%;
-    margin: 5rem auto;
-    gap: 4rem ;
-
-    @media (max-width: 1024px) {
-        width: 100%;
-        height: 100%;
-    }
-`
 interface PropsCardPokemon {
     bgColor: string;
 }
@@ -34,11 +20,8 @@ export const CardPokemon = styled.div<PropsCardPokemon>`
     }
 `
 
-export const ImagemCard = styled.div`
-    width: 12rem;
-    height: 12rem;
+export const ImagemCard = styled.div`   
     padding: .5rem;
-    object-fit: cover;
 `
 
 export const InfoCard = styled.div`
@@ -60,8 +43,7 @@ export const BodyInfo = styled.div`
         color: var(--amarelo-escuro);
     }
 
-    @media (ma-width: 1024px) {
-
+    @media (max-width: 1024px) {
         p {
             font-size: 12px;
         }
@@ -72,7 +54,6 @@ export const TitleCard = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 100%;
 
     h3 {
         color: var(--escuro);

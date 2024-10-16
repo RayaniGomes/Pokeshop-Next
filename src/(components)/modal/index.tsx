@@ -27,7 +27,7 @@ export default function ModalCard({ pokemon, showModal, handleClose }: PropModal
                 </Lista>
                 <ModalTitle>Movimentos</ModalTitle>
                 <Lista>
-                    {pokemon.moves.map((move, index) => { 
+                    {pokemon.moves.map((move, index) => {
                         return <ul key={index}>
                             <li>{move}</li>
                         </ul>
@@ -43,7 +43,7 @@ export default function ModalCard({ pokemon, showModal, handleClose }: PropModal
                     })}
                 </Evolution>
                 <ModalTitle>Atribuições</ModalTitle>
-                <Atributos>  
+                <Atributos>
                     <Table>
                         <TableBody>
                             {pokemon.stats && pokemon.stats.map((stat, index) => {
@@ -51,19 +51,15 @@ export default function ModalCard({ pokemon, showModal, handleClose }: PropModal
                                     <tr key={index}>
                                         <AtributosName>{stat.name}</AtributosName>
                                         <Progress progress={stat.base_stat}>
-                                            <ProgressBar 
-                                                now={stat.base_stat}
-                                            />
+                                            <ProgressBar now={stat.base_stat}/>
                                             <p>{stat.base_stat}</p>
                                         </Progress>
                                     </tr>
                                 )
-                            })} 
+                            })}
                         </TableBody>
                     </Table>
-            
                 </Atributos>
-                
             </ModalBody>
         </Modal>
     );

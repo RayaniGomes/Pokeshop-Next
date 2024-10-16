@@ -1,4 +1,3 @@
-"use client"
 import LitsPokemons from "@/(components)/listPokemons"
 import { Pagination } from "@/(components)/pagination";
 import { ApiPokemon, Pokemon, PokemonDetails, RequestPokemon } from "@/interfaces";
@@ -139,17 +138,17 @@ export default function Pokemons() {
         <>
             <PokemonTypes func={handleFilter}/>
             {pokemonDetails.length > 0
-                ? <>
+                ? <section>
                     <LitsPokemons pokemons={pokemonDetails.sort((a, b) => (a.id ?? 0) - (b.id ?? 0))} />
                     {pokemonDetails.length <9 
                         && <Voltar onClick={() => getPagination(currentPage)}>
                             <button>Voltar</button>
                         </Voltar>}
-                </>
+                </section>
                 :
                 <Mensagem>
                     <button onClick={() => getPagination(currentPage)}>
-                        Nessa pagina não existe pokemon do tipo {typePokemon}
+                        Nessa página não existe pokemon do tipo {typePokemon}
                     </button>
                 </Mensagem>
             }

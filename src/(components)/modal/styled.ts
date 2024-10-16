@@ -10,6 +10,10 @@ export const ModalBody = styled.div`
     display: flex;
     flex-direction: column;
     padding: 2rem;
+
+    @media (max-width: 768px) {
+        padding: 1rem;
+    }
 `
 
 export const Lista = styled.div`
@@ -20,13 +24,23 @@ export const Lista = styled.div`
     padding: 1rem 4rem;
     text-transform: capitalize;
     line-height: .5rem;
-    
+
+    @media (max-width: 768px) {
+        height: 100%;
+        padding: 1rem;
+        line-height: .75rem;
+    }
 `
 
 export const Evolution = styled.div`
     display: flex;
     text-transform: capitalize;
     margin-bottom: 1rem;
+
+    @media (max-width: 768px) {
+        flex-wrap: wrap;
+        margin: 1rem;
+    }
 `
 
 export const SessionEvolution = styled.div`
@@ -37,6 +51,7 @@ export const SessionEvolution = styled.div`
     justify-content: space-around;
     text-align: center;
 `
+
 export const Atributos = styled.div`
     width: 100%;
     background-color: var(--amarelo-escuro);
@@ -66,7 +81,7 @@ export const TableBody = styled.tbody`
 export const AtributosName = styled.td`
     display: flex;
     align-items: center;
-    width: 40%;
+    min-width: 40%;
     background-color: var(--amarelo-claro);
     border-radius: 10px 0px 0px 10px;
     padding: .25rem .5rem;
@@ -94,6 +109,7 @@ export const Progress = styled.td <PropsProgress>`
 
     p {
         margin: 0;
+        font-size: 12px;
     }
 `
 
