@@ -4,14 +4,13 @@ interface PropsCardPokemon {
     bgColor: string;
 }
 
-export const CardPokemon = styled.div<PropsCardPokemon>`
+export const CardPokemon = styled.div`
     display: flex;
     align-items: center;
     flex-direction: column;
-    width: 18.75rem;
-    height: 22rem;
+    max-width: 15.625rem;
+    flex: 1;
     border-radius: .625rem;
-    background-color: ${({ bgColor }) => bgColor || "var(--escuro)"};
     box-shadow: 5px 20px 10px 0px #00000040;
 
     @media (max-width: 1024px) {
@@ -20,12 +19,21 @@ export const CardPokemon = styled.div<PropsCardPokemon>`
     }
 `
 
-export const ImagemCard = styled.div`   
+export const ImagemCard = styled.div<PropsCardPokemon>`   
+    width: 100%;
+    height: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     padding: .5rem;
+    border-top-right-radius: .625rem;
+    border-top-left-radius: .625rem;
+    background-color: ${({ bgColor }) => bgColor || "var(--escuro)"};
 `
 
 export const InfoCard = styled.div`
     width: 100%;
+    height: 50%;
     background-color: var(--claro);
     border-bottom-left-radius: .625rem;
     border-bottom-right-radius: .625rem;
@@ -97,7 +105,11 @@ export const FooterInfo = styled.div`
     align-items: center;
 
     h4 {
+        font-size: 18px;
         color: var(--escuro);
+        display: flex;
+        align-items: center;
+        margin: 0;
     }
 
     button {

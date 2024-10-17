@@ -1,13 +1,12 @@
 import styled from "styled-components";
 
 export const Icones = styled.div`
-    width: 71.875rem;
+    width: 1440px;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
-    padding: 1rem;
+    padding: 1rem 5rem;
     margin: 0 auto;
-    gap: .5rem;
 
     button {
         background-color: transparent;
@@ -29,16 +28,18 @@ export const EmblaCarousel = styled.div`
     @media (max-width: 1024px) {
         width: 100%;
         display: flex;
+        justify-content: s;
         align-items: center;
         margin: 0 auto;
+        padding: 0 2rem;
     }
 `
 
 export const Embla = styled.div`
     
     @media (max-width: 1024px) {
-        width: 99%;
-        padding: .5rem ;
+        width: 100%;
+        padding: .5rem;
         margin: auto 0;
         overflow: hidden;
 

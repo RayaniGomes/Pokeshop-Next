@@ -2,17 +2,17 @@ import styled from "styled-components";
 
 export const ListCards = styled.div`
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
+    flex-wrap: wrap;
     width: 1440px;
     height: 100%;
     margin: 5rem auto;
     gap: 6rem;
+    overflow-x: hidden;
+    padding: 2rem 5rem;
     
     @media (max-width: 1440px) {
         width: 100%;
-        padding: 0rem 2rem;
-        gap: 4rem;
     }
 
     @media (max-width: 1024px) {
@@ -21,6 +21,6 @@ export const ListCards = styled.div`
     }
 
     @media (max-width: 768px) {
-        width: 100%;
+        width: 90%;
     }
 `

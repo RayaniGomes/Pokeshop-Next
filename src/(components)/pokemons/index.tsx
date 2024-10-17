@@ -12,7 +12,7 @@ export default function Pokemons() {
     const [currentPage, setCurrentPage] = useState(1);
     const [totalPages, setTotalPages] = useState(1);
     const [typePokemon, setTypePokemon] = useState('');
-    const itemsPorPage = 9;
+    const itemsPorPage = 12;
 
     const handleFilter = (typeName: string) => {
         setTypePokemon(typeName);

@@ -20,4 +20,10 @@ export const ContainerTitle = styled.div`
             font-size: 50px;
         }
     }
+
+    @media (max-width: 480px) {
+        h1 {
+            font-size: 40px;
+        }
+    }
 `

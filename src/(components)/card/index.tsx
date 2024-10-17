@@ -19,14 +19,15 @@ export default function Card({ pokemon }: PropsCard) {
     }; 
 
     return (
-        <CardPokemon bgColor={pokemon.color}>
-            <ImagemCard>
+        <CardPokemon>
+            <ImagemCard bgColor={pokemon.color}> 
                 {pokemon.image ? (
                     <Image
                         src={pokemon.image}
                         alt={pokemon.name}
                         width={180}
                         height={180}
+                        objectFit="cover" 
                     />
                 ) : (
                     <p>Imagem não disponível</p>
@@ -55,7 +56,7 @@ export default function Card({ pokemon }: PropsCard) {
                     </Typo>
                 </BodyInfo>
                 <FooterInfo>
-                    <h4>Por: R${pokemon.valorOriginal}</h4>
+                    <h4>Por: <br/> R${pokemon.valorOriginal}</h4>
                     <button>COMPRAR</button>
                 </FooterInfo>
             </InfoCard>
