@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const ContainerTitle = styled.div`
+export const ContainerTitle = styled.section`
     width: 100%;
     height: 15rem;
     display: flex;

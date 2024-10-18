@@ -4,7 +4,8 @@ import { ApiPokemon, Pokemon, PokemonDetails, RequestPokemon } from "@/interface
 import api from "@/service/api"
 import { useEffect, useState } from "react";
 import PokemonTypes from "../pokemonTypes";
-import { Mensagem, Voltar } from "./styled";
+import { FormPesquisar, Mensagem, Voltar } from "./styled";
+import Navbar from "../navbar";
 
 export default function Pokemons() {
     const [pokemonDetails, setPokemonDetails] = useState<PokemonDetails[]>([]);
@@ -12,7 +13,22 @@ export default function Pokemons() {
     const [currentPage, setCurrentPage] = useState(1);
     const [totalPages, setTotalPages] = useState(1);
     const [typePokemon, setTypePokemon] = useState('');
+    const [namePokemon, setNamePokemon] = useState('');
     const itemsPorPage = 12;
+
+    // Função para lidar com a pesquisa pelo nome do Pokémon
+    const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
+        const searchValue = event.target.value.toLowerCase();
+        setNamePokemon(searchValue);
+
+        // Filtrar os Pokémons pelo nome
+        const filteredPokemons = pokemonDetails.filter(pokemon =>
+            pokemon.name.toLowerCase().includes(searchValue)
+        );
+
+        // Atualizar o estado com os Pokémons filtrados
+        setPokemonDetails(filteredPokemons);
+    };
 
     const handleFilter = (typeName: string) => {
         setTypePokemon(typeName);
@@ -40,7 +56,7 @@ export default function Pokemons() {
             })
             .catch(error => console.log(error));
 
-    }
+    };
 
     useEffect(() => {
         getPagination(currentPage);
@@ -72,7 +88,6 @@ export default function Pokemons() {
     };
 
     const extractPokemonDetails = async (pokemons: Pokemon[]) => {
-
         const newPokemonDetails: PokemonDetails[] = [];
         for (const pokemon of pokemons) {
             api.get<ApiPokemon>(pokemon.url)
@@ -125,7 +140,7 @@ export default function Pokemons() {
                 })
                 .catch(error => console.log(error));
         }
-    }
+    };
 
     useEffect(() => {
         if (pokemon && pokemon?.results?.length > 0) {
@@ -135,12 +150,19 @@ export default function Pokemons() {
     }, [pokemon]);
 
     return (
-        <>
-            <PokemonTypes func={handleFilter}/>
+        <section>
+            <FormPesquisar>
+                <input type="text"
+                placeholder="Pesquisar Pokémon"
+                value={namePokemon}
+                onChange={handleSearch} />
+                <button className="bi bi-search" />
+            </FormPesquisar>
+            <PokemonTypes func={handleFilter} />
             {pokemonDetails.length > 0
                 ? <section>
                     <LitsPokemons pokemons={pokemonDetails.sort((a, b) => (a.id ?? 0) - (b.id ?? 0))} />
-                    {pokemonDetails.length <9 
+                    {pokemonDetails.length < 9
                         && <Voltar onClick={() => getPagination(currentPage)}>
                             <button>Voltar</button>
                         </Voltar>}
@@ -153,6 +175,6 @@ export default function Pokemons() {
                 </Mensagem>
             }
             <Pagination currentPage={currentPage} totalPages={totalPages} pageClick={handlePageClick} />
-        </>
+        </section>
     );
 }

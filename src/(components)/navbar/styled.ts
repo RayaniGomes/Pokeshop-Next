@@ -15,8 +15,9 @@ export const NavbarBody = styled.div`
     height: 5rem;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
     margin: 0 auto;
+    padding: 0rem 5rem;
 
     @media (max-width: 1440px) {
         width: 100%;
@@ -57,8 +58,9 @@ export const Menu = styled.div`
     @media (max-width: 768px) {
         position: absolute;
         width: 50%;
-        height: 100dvh;
+        height: 100vh;
         top: 5rem;
+        left: 50%;
         right: 0;
         background-color: var(--amarelo-escuro);
         box-shadow: -5px 10px 10px 0px #00000040;
@@ -68,57 +70,21 @@ export const Menu = styled.div`
         gap: 1.5rem;
         padding: 2rem 0;
         transition: all 0.8s ease-in-out;
-        transform: translateX(100%);       
+        transform: translateX(100%);
         opacity: 0;
-
+        pointer-events: none;
+        
         &.open {
-            opacity: 1;
             transform: translateX(0);
+            opacity: 1;
+            pointer-events: all;
         }
     }
-
-    @media (max-width: 480px) {
-        width: 80%;
-    }
-`
+`;
 
 export const Link = styled.a`
     color: var(--claro);
     text-decoration: none;
-`
-
-export const FormPesquisar = styled.form`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    input {
-        background-color: var(--claro);
-        border: none;
-        border-bottom-left-radius: .625rem;
-        border-top-left-radius: .625rem;
-        padding: .25rem .5rem;
-        font-size: 14px;
-        color: var(--escuro);
-    }
-
-    button {
-        font-size: 14px;
-        background-color: var(--claro);
-        color: var(--escuro);
-        padding: .25rem .5rem;
-        border-top-right-radius: .625rem;
-        border-bottom-right-radius: .625rem;
-    }
-
-    @media (max-width: 480px) {
-        width: 100%;
-        padding: .5rem;
-
-        input {
-            width: 70%;
-        }
-    }
 `
 
 export const Buttons = styled.div`

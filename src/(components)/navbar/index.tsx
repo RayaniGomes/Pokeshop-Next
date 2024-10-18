@@ -1,6 +1,10 @@
 import { useState } from "react";
 import Image from "next/image";
-import { Buttons, FormPesquisar, Link, Logo, Menu, NavbarBody, NavbarContainer } from "./styled";
+import { Buttons, Link, Logo, Menu, NavbarBody, NavbarContainer } from "./styled";
+
+interface PropPesquisa {
+    pokemonPesquisa: (namePokemon: string) => void; 
+}
 
 export default function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -26,10 +30,6 @@ export default function Navbar() {
                     <Link>Mais Vendidos</Link>
                     <Link>Pokédex</Link>
                     <Link>Contato</Link>
-                    <FormPesquisar>
-                        <input type="search" placeholder='Pesquisar por pokemon...' />
-                        <button className="bi bi-search" />
-                    </FormPesquisar>
                 </Menu>
                 <Buttons>
                     <a className="bi bi-cart" />

@@ -9,11 +9,14 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+
 }
 
 html {
   width: 100vw;
   overflow-x: hidden;
+  left: 0;
+  right: 0;
 }
 
 body {

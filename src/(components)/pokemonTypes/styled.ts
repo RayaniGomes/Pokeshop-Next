@@ -39,7 +39,7 @@ export const Embla = styled.div`
     
     @media (max-width: 1024px) {
         width: 100%;
-        padding: .5rem;
+        padding: .5rem 0;
         margin: auto 0;
         overflow: hidden;
 
@@ -56,7 +56,6 @@ export const Embla = styled.div`
 export  const EmblaContainer = styled.div`
     width: 10%;
     display: flex;
-    margin: 0 .25rem;
     gap: .5rem;
 `
 

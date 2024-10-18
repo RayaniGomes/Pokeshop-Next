@@ -8,7 +8,7 @@ interface PokemonTypesProps {
 }
 
 export default function PokemonTypes({ func }: PokemonTypesProps) {
-    const [emblaRef, emblaApi] = useEmblaCarousel();
+    const [emblaRef] = useEmblaCarousel();
 
     return (
         <section>
