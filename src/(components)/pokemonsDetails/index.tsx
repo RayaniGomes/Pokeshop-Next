@@ -5,7 +5,6 @@ import api from "@/service/api"
 import { useEffect, useState } from "react";
 import PokemonTypes from "../pokemonTypes";
 import { FormPesquisar, Mensagem, Voltar } from "./styled";
-import Navbar from "../navbar";
 
 export default function PokemonsDetails() {
     const [pokemonDetails, setPokemonDetails] = useState<PokemonDetails[]>([]);

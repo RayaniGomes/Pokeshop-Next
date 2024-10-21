@@ -1,10 +1,11 @@
-import Pokedex from './pokedex/page';
 
-export default function Home() {
+import Home from './home/page';
+
+export default function Rote() {
 
   return (
     <div>
-      <Pokedex/>
+      <Home/>
     </div>
   );
 }

@@ -26,9 +26,9 @@ export default function Navbar() {
                     />
                 </Logo>
                 <Menu className={isMenuOpen ? 'open' : ''}>
-                    <Link>Home</Link>
+                    <Link href="/">Home</Link>
                     <Link>Mais Vendidos</Link>
-                    <Link>Pokédex</Link>
+                    <Link href="/pokedex">Pokédex</Link>
                     <Link>Contato</Link>
                 </Menu>
                 <Buttons>
