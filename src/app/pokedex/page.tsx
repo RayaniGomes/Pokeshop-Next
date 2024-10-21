@@ -1,5 +1,5 @@
-'use client'; 
-import Pokemons from "@/(components)/pokemons";
+'use client';
+import PokemonsDetails from "@/(components)/pokemonsDetails";
 import Title from "@/(components)/title";
 import { PokedexPage } from "./styled";
 import Navbar from "@/(components)/navbar";
@@ -10,7 +10,7 @@ export default function Pokedex() {
         <PokedexPage>
             <Navbar />
             <Title Children="Pokedex" />
-            <Pokemons />
+            <PokemonsDetails />
             <Footer />
         </PokedexPage>
     );

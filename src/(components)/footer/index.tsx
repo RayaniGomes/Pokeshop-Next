@@ -1,7 +1,5 @@
 import Image from "next/image";
-import { Logo } from "../navbar/styled";
-import { FooterContainer, FooterSection, InfoFooter, RedesSociais } from "./styled";
-import { Container } from "react-bootstrap";
+import { Display, FooterContainer, FooterSection, InfoFooter, Logo, RedesSociais } from "./styled";
 
 export default function Footer() {
     return (
@@ -17,16 +15,19 @@ export default function Footer() {
                     />
                 </Logo>
                 <InfoFooter>
-                    <div>
-                        <i className="bi bi-geo-alt-fill p-2" />
+                    <Display>
+                        <i className="bi bi-geo-alt-fill" />
                         <p>Rua Ali Perto, 35<br /> Rio de Janeiro - RJ<br /> Brasil - Terra - Via Láctea</p>
-                    </div>
-                    <div>
-                        <i className="bi bi-envelope-fill p-2" />
+                    </Display>
+                    <Display>
+                        <i className="bi bi-envelope-fill" />
                         <p>contato@pokeshop.com<br /> assistencia@pokeshop.com</p>
-                    </div>
+                    </Display>
                     <div>
-                        <p><i className="bi bi-telephone-fill" /> +55 21 99999-9999</p>
+                        <Display>
+                            <i className="bi bi-telephone-fill" /> <p>+55 21 99999-9999
+                            </p>
+                        </Display>
                         <RedesSociais>
                             <a href='#' className="bi bi-instagram" />
                             <a href='#' className="bi bi-facebook" />

@@ -7,7 +7,7 @@ import PokemonTypes from "../pokemonTypes";
 import { FormPesquisar, Mensagem, Voltar } from "./styled";
 import Navbar from "../navbar";
 
-export default function Pokemons() {
+export default function PokemonsDetails() {
     const [pokemonDetails, setPokemonDetails] = useState<PokemonDetails[]>([]);
     const [pokemon, setPokemon] = useState<RequestPokemon>({} as RequestPokemon);
     const [currentPage, setCurrentPage] = useState(1);
@@ -16,17 +16,12 @@ export default function Pokemons() {
     const [namePokemon, setNamePokemon] = useState('');
     const itemsPorPage = 12;
 
-    // Função para lidar com a pesquisa pelo nome do Pokémon
     const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
         const searchValue = event.target.value.toLowerCase();
-        setNamePokemon(searchValue);
-
-        // Filtrar os Pokémons pelo nome
+        setNamePokemon(searchValue);        
         const filteredPokemons = pokemonDetails.filter(pokemon =>
             pokemon.name.toLowerCase().includes(searchValue)
         );
-
-        // Atualizar o estado com os Pokémons filtrados
         setPokemonDetails(filteredPokemons);
     };
 
@@ -153,9 +148,9 @@ export default function Pokemons() {
         <section>
             <FormPesquisar>
                 <input type="text"
-                placeholder="Pesquisar Pokémon"
-                value={namePokemon}
-                onChange={handleSearch} />
+                    placeholder="Pesquisar Pokémon"
+                    value={namePokemon}
+                    onChange={handleSearch} />
                 <button className="bi bi-search" />
             </FormPesquisar>
             <PokemonTypes func={handleFilter} />

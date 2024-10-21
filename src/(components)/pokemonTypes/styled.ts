@@ -17,6 +17,10 @@ export const Icones = styled.div`
         }
     }
 
+    @media (max-width: 1440px){
+        width: 100%;
+    }
+
     @media (max-width: 1024px) {
         display: none;
     }
@@ -31,7 +35,7 @@ export const EmblaCarousel = styled.div`
         justify-content: s;
         align-items: center;
         margin: 0 auto;
-        padding: 0 2rem;
+        padding: 0 1rem;
     }
 `
 

@@ -31,18 +31,23 @@ export const FormPesquisar = styled.form`
     }
 `
 
-export const Mensagem = styled.h3`
+export const Mensagem = styled.div`
+    min-height: 40vh;
     display: flex;
     justify-content: center;
-    padding: 4rem 0rem;
+    margin: 4rem auto;
+    background-color: transparent;
 
     button {
-        padding: .5rem;
+        height: 3rem;
+        padding: .5rem 1rem;
         border-radius: 0.5rem;
         margin: 0rem 1rem;
     }
 
-    @media (max-width: 1024px) {}
+    @media (max-width: 1024px) {
+        height: 80vh;
+    }
 `
 
 export const Voltar = styled.div`
