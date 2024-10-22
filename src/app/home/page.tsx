@@ -2,11 +2,13 @@
 import CarrosselTypes from "@/(components)/carrosselTypes";
 import HeaderHome from "@/(components)/headerHome";
 import Navbar from "@/(components)/navbar";
-import { Container, Subtitle, TypesPokemons } from "./styled";
+import { Container, Formulario, Subtitle, TypesPokemons } from "./styled";
+import Contato from "@/(components)/contato";
+
 
 export default function Home() {
     return (
-        <>
+        <main>
             <Navbar />
             <HeaderHome />
             <TypesPokemons>
@@ -15,6 +17,12 @@ export default function Home() {
                     <CarrosselTypes />
                 </Container>
             </TypesPokemons>
-        </>
+            <Formulario>
+                <Container>
+                    <Subtitle>Fale Conosco</Subtitle>
+                    <Contato />
+                </Container>
+            </Formulario>
+        </main>
     )
 }
