@@ -4,7 +4,7 @@ import styled from "styled-components";
 export const ContainerCarousel = styled.div`
     width: 100%;
     margin: 1rem auto;
-    padding: 2rem 5rem;
+    padding: 2rem 0rem;
     overflow: hidden;
     
     .is-selected div:first-child {
@@ -31,7 +31,12 @@ export const CardCarousel = styled.div`
     background: linear-gradient(360deg, var(--amarelo-escuro) 0%, var(--amarelo-claro) 100%);
     box-shadow: 5px 5px 10px 0px #00000040;
     margin-right: 2rem;
-    margin-bottom: 0.5em;;
+    margin-bottom: 0.5em;
+
+    @media (max-width: 768px) {
+        width: 200px;
+        height: 300px;
+    }
 `
 
 export const FrontCard = styled.div`
@@ -75,5 +80,15 @@ export const BackCard = styled.div`
         text-decoration: none;
         padding: .5rem;
         border-radius: 5px;
+    }
+
+    @media (max-width: 768px) {
+        p{
+            font-size: 10px;
+        }
+
+        a {
+            font-size: 10px;
+        }
     }
 `

@@ -27,7 +27,7 @@ export default function Navbar() {
                 </Logo>
                 <Menu className={isMenuOpen ? 'open' : ''}>
                     <Link href="/">Home</Link>
-                    <Link>Mais Vendidos</Link>
+                    {/* <Link>Mais Vendidos</Link> */}
                     <Link href="/pokedex">Pokédex</Link>
                     <Link>Contato</Link>
                 </Menu>
