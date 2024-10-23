@@ -40,21 +40,24 @@ export const CampoText = styled.div`
 
     input {
         width: 100%;
-        background-color: var(--amarelo-claro);
+        background-color: var(--amarelo-escuro);
         color: var(--claro);
         border: none;
         border-radius: 10px;
         padding: 1rem;
+        box-shadow: 0px 4px 4px 0px #00000040;
+
     }
 
     textarea {
         width: 100%;
         height: 10rem;
-        background-color: var(--amarelo-claro);
+        background-color: var(--amarelo-escuro);
         border: none;
         color: var(--claro);
         border-radius: 10px;
         padding: 1rem;
+        box-shadow: 0px 4px 4px 0px #00000040;
     }
 
     ::placeholder {
