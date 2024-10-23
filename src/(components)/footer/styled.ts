@@ -10,10 +10,18 @@ export const FooterSection = styled.footer`
     color: var(--claro);
 
     p {
-        font-size: 12px;
+        font-size: 14px;
     }
 
-    @media (max-width: 320px){
+    @media (max-width: 768px){
+        p {
+            font-size: 12px;
+        }
+    }
+
+    @media (max-width: 375px){
+        justify-content: space-between;
+        
         p {
             font-size: 10px;
         }
@@ -40,12 +48,19 @@ export const FooterContainer = styled.div`
 
 export const Logo = styled.a`
     display: flex;
-    @media (max-width: 768px) {
-        width: 30%;
 
+    @media (max-width: 768px) {
         img {
-            width: 5rem;
-            height: 3.125rem;
+            width: 10rem;
+            height: 6rem;
+            object-fit: cover;
+        }
+    }
+
+    @media (max-width: 375px) {
+        img {
+            width: 6rem;
+            height: 4rem;
             object-fit: cover;
         }
     }
@@ -56,15 +71,17 @@ export const InfoFooter = styled.div`
     gap: 5rem;
     color: var(--claro);
 
-
     @media (max-width: 1027px) {
         gap: 1rem;
     }
 
     @media (max-width: 768px) {
-        width: 70%;
         flex-wrap: wrap;
         gap: .5rem;
+    }
+
+    @media (max-width: 375px) {
+        gap: 0;    
     }
 `
 
@@ -77,10 +94,16 @@ export const Display = styled.div`
     }
 
     p {
-        font-size: 12px;
+        font-size: 14px;
     }
 
-    @media (max-width: 320px) {
+    @media (max-width: 768px) {
+        p {
+            font-size: 12px;
+        }
+    }
+
+    @media (max-width: 375px){
         p {
             font-size: 10px;
         }

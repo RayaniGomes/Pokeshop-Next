@@ -4,7 +4,7 @@ import HeaderHome from "@/(components)/headerHome";
 import Navbar from "@/(components)/navbar";
 import { Container, Formulario, Subtitle, TypesPokemons } from "./styled";
 import Contato from "@/(components)/contato";
-
+import Footer from "@/(components)/footer";
 
 export default function Home() {
     return (
@@ -23,6 +23,7 @@ export default function Home() {
                     <Contato />
                 </Container>
             </Formulario>
+            <Footer />
         </main>
     )
 }

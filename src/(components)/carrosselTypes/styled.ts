@@ -2,11 +2,14 @@ import styled from "styled-components";
 
 
 export const ContainerCarousel = styled.div`
-    width: 100%;
+    width: 66%;
     margin: 1rem auto;
     padding: 2rem 0rem;
-    overflow: hidden;
     
+    .flickity-viewport {
+        height: 365px !important;
+    }
+
     .is-selected div:first-child {
         transform: rotateY(180deg);
     }
@@ -17,6 +20,12 @@ export const ContainerCarousel = styled.div`
 
     @media (max-width: 1024px) {
         width: 100%;
+    }
+
+    @media (max-width: 320px){
+        .flickity-viewport {
+            height: 325px !important;
+        }
     }
 `
 export const CardCarousel = styled.div`
