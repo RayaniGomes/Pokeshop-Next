@@ -45,8 +45,21 @@ export const TypesPokemons = styled.div`
 `
 
 export const Formulario = styled.div`
-    background-image: url('/img/background.png');
-    background-size: 100vw 100%;
+    background-image: url('/img/background.svg');
+    background-size: 95% 95% cover;
     background-repeat: no-repeat;
-    padding: 5rem;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    @media (max-width: 768px) {
+        width: 100%;
+        padding: 0rem;
+        background-size: 768px; 
+        .container {
+            padding: 0;
+        }
+    }
 `
