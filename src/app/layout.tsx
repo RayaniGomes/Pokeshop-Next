@@ -4,6 +4,7 @@ import "./globals.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import StyledComponentsRegistry from "./registry";
+import { CarrinhoProvider } from "@/contexts/carrinhoContext";
 
 const montserrat = Montserrat({ subsets: ["latin"] });
 
@@ -26,7 +27,9 @@ export default function RootLayout({
       </head>
       <body className={montserrat.className}>
         <StyledComponentsRegistry>
-          {children}
+          <CarrinhoProvider>
+            {children}
+          </CarrinhoProvider>
         </StyledComponentsRegistry>
       </body>
     </html>
