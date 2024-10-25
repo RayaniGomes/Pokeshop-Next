@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Image from "next/image";
-import { Apagar, CarCarrinhoContainer, DivCarrinho, DivImage, DivInfo, InfoPreco, InfoTitle, InfoType, Quantidade } from "./styled";
+import { Apagar, ContainerCarrinho, DivCarrinho, DivImage, DivInfo, InfoPreco, InfoTitle, InfoType, Quantidade } from "./styled";
 import { types } from "@/data/helps";
 
 export default function CardCarrinho() {
@@ -24,7 +24,7 @@ export default function CardCarrinho() {
     };
 
     return (
-        <CarCarrinhoContainer>
+        <ContainerCarrinho>
             <DivCarrinho>
                 <DivImage>
                     <Image
@@ -71,6 +71,6 @@ export default function CardCarrinho() {
                     </InfoPreco>
                 </DivInfo>
             </DivCarrinho>
-        </CarCarrinhoContainer>
+        </ContainerCarrinho>
     )
 }
