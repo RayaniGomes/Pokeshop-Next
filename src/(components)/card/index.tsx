@@ -2,7 +2,7 @@ import { PokemonDetails } from "@/interfaces";
 import { BodyInfo, CardPokemon, FooterInfo, ImagemCard, InfoCard, TitleCard, Typo } from "./styled";
 import Image from "next/image";
 import { useState } from "react";
-import ModalCard from "../modal";
+import ModalCard from "../modalPokemon";
 
 interface PropsCard {
     pokemon: PokemonDetails,
