@@ -23,7 +23,7 @@ export const Total = styled.div`
     justify-content: space-between;
     align-items: center;
 
-    h2, h3 {
+    h4 {
         font-weight: 700;
     }
 `
@@ -38,6 +38,7 @@ export const ButtonTotal = styled.div`
         padding: .5rem;
         border-radius: .625rem;
         text-transform: uppercase;
+        font-size: 14px;
     }
 
     @media (max-width: 768px) {

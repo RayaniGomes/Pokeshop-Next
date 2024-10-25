@@ -67,7 +67,7 @@ export const Menu = styled.div`
         flex-direction: column;
         align-items: center;
         justify-content: flex-start;
-        gap: 1.5rem;
+        gap: 1rem;
         padding: 2rem 0;
         transition: all 0.8s ease-in-out;
         transform: translateX(100%);
@@ -85,6 +85,15 @@ export const Menu = styled.div`
 export const Link = styled.a`
     color: var(--claro);
     text-decoration: none;
+
+    @media (max-width: 768px) {
+        width: 90%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid var(--claro);
+    }   
 `
 
 export const Buttons = styled.div`
@@ -92,28 +101,55 @@ export const Buttons = styled.div`
     align-items: center;
     gap: 1rem;
 
-    a {
-        color: var(--claro);
-        font-size: 30px;
-    }
-
-    button {
-        background: none;
-        border: none;
-        color: var(--claro);
-        font-size: 40px;
-        display: none;
-    }
-
-    @media (max-width: 768px) {
-        button {
-            display: block;
-        }
-    }
-
     @media (max-width: 480px) {
         margin-left: .5rem;
         gap: .5rem;
     }
     
+`
+
+export const ButtonMenuHamburger = styled.button`
+    background: none;
+    border: none;
+    color: var(--claro);
+    font-size: 40px;
+    display: none;
+
+    @media (max-width: 768px) {
+        display: block;
+    }
+`
+
+export const ButtonCarrinho = styled.button`
+    background: none;
+    border: none;
+    color: var(--claro);
+    font-size: 30px;
+    display: block;
+`
+
+export const ContainerModalCarrinho = styled.div`
+    position: absolute;
+    width: 450px;
+    height: 100vh;
+    top: 5rem;
+    right: 0;
+    right: 0;
+    background-color: var(--amarelo-escuro);
+    box-shadow: -5px 10px 10px 0px #00000040;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1.5rem;
+    padding: 2rem;
+    transition: all 0.8s ease-in-out;
+    transform: translateX(100%);
+    opacity: 0;
+    pointer-events: none;
+    
+    &.open {
+        transform: translateX(0);
+        opacity: 1;
+        pointer-events: all;
+    }
 `

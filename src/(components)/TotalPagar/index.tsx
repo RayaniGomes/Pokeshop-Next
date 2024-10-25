@@ -4,8 +4,8 @@ export default function TotalPagar() {
     return (
         <ContainerTotal>
             <Total>
-                <h2>Total:</h2>
-                <h3>R$ 0,00</h3>
+                <h4>Total:</h4>
+                <h4>R$ 0,00</h4>
             </Total>
             <ButtonTotal>
                 <button>Finalizar compra</button>

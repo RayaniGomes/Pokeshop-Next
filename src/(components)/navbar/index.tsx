@@ -1,16 +1,22 @@
 import { useState } from "react";
 import Image from "next/image";
-import { Buttons, Link, Logo, Menu, NavbarBody, NavbarContainer } from "./styled";
+import { ButtonCarrinho, ButtonMenuHamburger, Buttons, ContainerModalCarrinho, Link, Logo, Menu, NavbarBody, NavbarContainer } from "./styled";
+import ModalCarrinho from "../modalCarrinho";
 
 interface PropPesquisa {
-    pokemonPesquisa: (namePokemon: string) => void; 
+    pokemonPesquisa: (namePokemon: string) => void;
 }
 
 export default function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [isCarrinho, setIsCarrinho] = useState(false);
 
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
+    };
+
+    const openCarrinho = () => {
+        setIsCarrinho(!isCarrinho);
     };
 
     return (
@@ -32,9 +38,13 @@ export default function Navbar() {
                     <Link>Contato</Link>
                 </Menu>
                 <Buttons>
-                    <a className="bi bi-cart" />
-                    <button className={isMenuOpen ? 'bi bi-x' : 'bi bi-list'} onClick={toggleMenu} />
+                    <ButtonCarrinho className={isCarrinho ? 'bi bi-x' : 'bi bi-cart'} onClick={openCarrinho} />
+
+                    <ButtonMenuHamburger className={isMenuOpen ? 'bi bi-x' : 'bi bi-list'} onClick={toggleMenu} />
                 </Buttons>
+                <ContainerModalCarrinho className={isCarrinho ? 'open' : ''}>
+                    <ModalCarrinho />
+                </ContainerModalCarrinho>
             </NavbarBody>
         </NavbarContainer>
     );
