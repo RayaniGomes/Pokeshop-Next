@@ -222,6 +222,11 @@ export const Apagar = styled.button`
     color: var(--escuro);
     font-size: 25px;
 
+    &:hover {
+        background-color: transparent;
+        color: var(--amarelo-escuro);
+    }
+
     @media (max-width: 560px) {
         font-size: 20px;
     }
