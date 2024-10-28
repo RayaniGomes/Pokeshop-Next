@@ -6,7 +6,7 @@ export default function Rote() {
 
   return (
     <div>
-        <Carrinho />
+        <Home />
     </div>
   );
 }

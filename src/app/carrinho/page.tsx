@@ -1,3 +1,4 @@
+'use client'
 import CardCarrinho from "@/(components)/cardCarrinho";
 import Footer from "@/(components)/footer";
 import Navbar from "@/(components)/navbar";
@@ -11,7 +12,6 @@ export default function Carrinho() {
             <Navbar />
             <Title Children="Carrinho" />
             <ContainerCarrinho>
-
                 <SubtitleCarrinho>
                     <h3>
                         Detalhes do Carrinho

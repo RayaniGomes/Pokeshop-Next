@@ -3,6 +3,7 @@ import { BodyInfo, CardPokemon, FooterInfo, ImagemCard, InfoCard, TitleCard, Typ
 import Image from "next/image";
 import { useState } from "react";
 import ModalCard from "../modalPokemon";
+import { useCardStore } from "@/Store/CardStore";
 
 interface PropsCard {
     pokemon: PokemonDetails,
@@ -10,24 +11,25 @@ interface PropsCard {
 
 export default function Card({ pokemon }: PropsCard) {
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const addToCart = useCardStore((state) => state.addToCard);
 
     const handleOpenModal = () => {
         setIsModalOpen(true);
     };
     const handleCloseModal = () => {
         setIsModalOpen(false);
-    }; 
+    };
 
     return (
         <CardPokemon>
-            <ImagemCard bgColor={pokemon.color}> 
+            <ImagemCard bgColor={pokemon.color}>
                 {pokemon.image ? (
                     <Image
                         src={pokemon.image}
                         alt={pokemon.name}
                         width={180}
                         height={180}
-                        objectFit="cover" 
+                        objectFit="cover"
                     />
                 ) : (
                     <p>Imagem não disponível</p>
@@ -56,8 +58,8 @@ export default function Card({ pokemon }: PropsCard) {
                     </Typo>
                 </BodyInfo>
                 <FooterInfo>
-                    <h4>Por: <br/> R${pokemon.valorOriginal}</h4>
-                    <button>COMPRAR</button>
+                    <h4>Por: <br /> R${pokemon.valorOriginal}</h4>
+                    <button onClick={() => addToCart(pokemon)}>COMPRAR</button>
                 </FooterInfo>
             </InfoCard>
         </CardPokemon>

@@ -1,5 +1,13 @@
 import styled from "styled-components";
 
+export const Container = styled.div`
+    max-height: 60vh;
+    overflow: auto;
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+`
+
 export const CarrinhoModal = styled.div`
     width: 100%;
     display: flex;

@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { ApagarItem, CarrinhoModal, ImageProduto, InfoProduto, QuantidadeProduto } from "./styled";
+import { ApagarItem, CarrinhoModal, Container, ImageProduto, InfoProduto, QuantidadeProduto } from "./styled";
 import Image from "next/image";
+import { useCardStore } from "@/Store/CardStore";
 
 export default function ModalCarrinho() {
     const [quantidade, setQuantidade] = useState(1);
@@ -22,33 +23,42 @@ export default function ModalCarrinho() {
         }
     };
 
+    const { card, removeFromCard } = useCardStore();
+
     return (
-        <CarrinhoModal >
-            <ImageProduto>
-                <Image
-                    src='/img/image 6.png'
-                    width={100}
-                    height={100}
-                    alt="pokemon"
-                />
-            </ImageProduto>
-            <InfoProduto>
-                <h3>Nome</h3>
-                <QuantidadeProduto>
-                    <h4>R$ 0,00</h4>
-                    <div className="quantidade">
-                        <button onClick={diminuirQuantidade}>-</button>
-                        <input
-                            type="text"
-                            value={quantidade}
-                            onChange={handleInputChange}
-                            min="1"
-                        />
-                        <button onClick={aumentarQuantidade}>+</button>
-                    </div>
-                        <ApagarItem className="bi bi-trash3-fill" />
-                </QuantidadeProduto>
-            </InfoProduto>
-        </CarrinhoModal>
+        <Container>
+            {card.map((item) => {
+                return (
+                    <CarrinhoModal key={item.id}>
+                        <ImageProduto>
+                            <Image
+                                src={item.image}
+                                width={100}
+                                height={100}
+                                alt={item.name}
+                            />
+                        </ImageProduto>
+                        <InfoProduto>
+                            <h3>{item.name}</h3>
+                            <QuantidadeProduto>
+                                <h4>R${item.valorOriginal}</h4>
+                                <div className="quantidade">
+                                    <button onClick={diminuirQuantidade}>-</button>
+                                    <input
+                                        type="text"
+                                        value={quantidade}
+                                        onChange={handleInputChange}
+                                        min="1"
+                                    />
+                                    <button onClick={aumentarQuantidade}>+</button>
+                                </div>
+                                <ApagarItem className="bi bi-trash3-fill" onClick={() => removeFromCard(item.id)}/>
+                            </QuantidadeProduto>
+                        </InfoProduto>
+                    </CarrinhoModal>
+                )
+            })}
+        </Container>
+        // 
     );
 }

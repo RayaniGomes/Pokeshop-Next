@@ -1,7 +1,9 @@
+'use client';
 import { useState } from "react";
 import Image from "next/image";
-import { ButtonCarrinho, ButtonMenuHamburger, Buttons, ContainerModalCarrinho, Finalizar, Link, Logo, Menu, NavbarBody, NavbarContainer } from "./styled";
+import { ButtonCarrinho, ButtonMenuHamburger, Buttons, ContainerModalCarrinho, Finalizar, Logo, Menu, NavbarBody, NavbarContainer } from "./styled";
 import ModalCarrinho from "../modalCarrinho";
+import Link from "next/link";
 
 interface PropPesquisa {
     pokemonPesquisa: (namePokemon: string) => void;
@@ -16,7 +18,7 @@ export default function Navbar() {
             setIsCarrinho(false);
         }
         setIsMenuOpen(!isMenuOpen);
-        
+
     };
 
     const openCarrinho = () => {
@@ -42,7 +44,7 @@ export default function Navbar() {
                     <Link href="/">Home</Link>
                     {/* <Link>Mais Vendidos</Link> */}
                     <Link href="/pokedex">Pokédex</Link>
-                    <Link>Contato</Link>
+                    <Link href="/contato">Contato</Link>
                 </Menu>
                 <Buttons>
                     <ButtonCarrinho className={isCarrinho ? 'bi bi-x' : 'bi bi-cart'} onClick={openCarrinho} />
@@ -51,7 +53,9 @@ export default function Navbar() {
                 </Buttons>
                 <ContainerModalCarrinho className={isCarrinho ? 'open' : ''}>
                     <ModalCarrinho />
-                    <Finalizar>Finalizar compra</Finalizar>
+                    <Finalizar>
+                        <Link href='/carrinho'>Finalizar compra</Link>
+                    </Finalizar>
                 </ContainerModalCarrinho>
             </NavbarBody>
         </NavbarContainer>

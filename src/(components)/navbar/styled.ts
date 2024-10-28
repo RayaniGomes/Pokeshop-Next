@@ -80,20 +80,20 @@ export const Menu = styled.div`
             pointer-events: all;
         }
     }
-`;
 
-export const Link = styled.a`
-    color: var(--claro);
-    text-decoration: none;
+    a {
+        color: var(--claro);
+        text-decoration: none;
 
-    @media (max-width: 768px) {
-        width: 90%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding-bottom: 1rem;
-        border-bottom: 1px solid var(--claro);
-    }   
+        @media (max-width: 768px) {
+            width: 90%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--claro);
+        }   
+    }
 `
 
 export const Buttons = styled.div`
@@ -158,11 +158,24 @@ export const ContainerModalCarrinho = styled.div`
     }
 `
 
-export const Finalizar = styled.button`
+export const Finalizar = styled.div`
     width: 100%;
     margin: 5rem 0;
     padding: .5rem;
     border-radius: .625rem;
     background-color: var(--escuro);
-    color: var(--claro);
+
+    a{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        color: var(--claro);
+        text-decoration: none;
+
+    }
+    &:hover {
+        opacity: 0.85;
+    }
 `

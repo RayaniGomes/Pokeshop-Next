@@ -10,7 +10,7 @@ export const ContainerCarrinho = styled.section`
     }
 `
 
-export const SubtitleCarrinho = styled.h3`
+export const SubtitleCarrinho = styled.div`
     display: flex;
     align-items: center;
     justify-content: left;
