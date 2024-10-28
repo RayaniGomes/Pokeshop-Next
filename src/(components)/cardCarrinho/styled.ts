@@ -103,7 +103,7 @@ export const InfoTitle = styled.div`
         display: flex;
         align-items: center;
         justify-content: center;
-        font-weight: 500;
+        font-weight: 700;
     }
 
     @media (max-width: 560px) {
@@ -190,7 +190,7 @@ export const Quantidade = styled.div`
         align-items: center;
         justify-content: center;
         font-size: 20px;
-        font-weight: 500;
+        font-weight: 700;
     }
 
     input {

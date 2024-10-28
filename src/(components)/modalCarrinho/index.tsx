@@ -39,7 +39,7 @@ export default function ModalCarrinho() {
                     <div className="quantidade">
                         <button onClick={diminuirQuantidade}>-</button>
                         <input
-                            type="number"
+                            type="text"
                             value={quantidade}
                             onChange={handleInputChange}
                             min="1"

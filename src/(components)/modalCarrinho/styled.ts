@@ -8,7 +8,7 @@ export const CarrinhoModal = styled.div`
     box-shadow: 5px 5px 10px 0px #00000040;
     padding: 1rem;
     gap: 1rem;
-
+    
     @media (max-width: 320px) {
         padding: .5rem;
     }
@@ -59,7 +59,7 @@ export const QuantidadeProduto = styled.div`
             align-items: center;
             justify-content: center;
             font-size: 18px;
-            font-weight: 500;
+            font-weight: 700;
         }
         
         input {
