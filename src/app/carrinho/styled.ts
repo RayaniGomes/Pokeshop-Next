@@ -1,13 +1,19 @@
 import styled from "styled-components";
 
-export const ContainerCarrinho = styled.main`
-    width: 100%;
+export const ContainerCarrinho = styled.section`
+    width: 1440px;
     min-height: 100vh;
+    margin: 0 auto;
+
+    @media (max-width: 1440px) {
+        width: 100%;
+    }
 `
 
-export const Subtitle = styled.h3`
-    width: 1440px;
-    margin: 0 auto;
+export const SubtitleCarrinho = styled.h3`
+    display: flex;
+    align-items: center;
+    justify-content: left;
     padding: 2rem 5rem;
 
     @media (max-width: 1440px) {

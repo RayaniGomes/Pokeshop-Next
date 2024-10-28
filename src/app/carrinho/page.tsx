@@ -2,23 +2,25 @@ import CardCarrinho from "@/(components)/cardCarrinho";
 import Footer from "@/(components)/footer";
 import Navbar from "@/(components)/navbar";
 import Title from "@/(components)/title";
-import { ContainerCarrinho, Subtitle } from "./styled";
+import { ContainerCarrinho, SubtitleCarrinho } from "./styled";
 import TotalPagar from "@/(components)/TotalPagar";
 
 export default function Carrinho() {
     return (
-        <ContainerCarrinho>
+        <main>
             <Navbar />
             <Title Children="Carrinho" />
+            <ContainerCarrinho>
 
-            <Subtitle>
-                <h3>
-                    Detalhes do Carrinho
-                </h3>
-            </Subtitle>
-            <CardCarrinho />
-            <TotalPagar />
+                <SubtitleCarrinho>
+                    <h3>
+                        Detalhes do Carrinho
+                    </h3>
+                </SubtitleCarrinho>
+                <CardCarrinho />
+                <TotalPagar />
+            </ContainerCarrinho >
             <Footer />
-        </ContainerCarrinho >
+        </main>
     );
 }
