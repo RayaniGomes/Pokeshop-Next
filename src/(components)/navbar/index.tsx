@@ -12,10 +12,17 @@ export default function Navbar() {
     const [isCarrinho, setIsCarrinho] = useState(false);
 
     const toggleMenu = () => {
+        if (isCarrinho) {
+            setIsCarrinho(false);
+        }
         setIsMenuOpen(!isMenuOpen);
+        
     };
 
     const openCarrinho = () => {
+        if (isMenuOpen) {
+            setIsMenuOpen(false);
+        }
         setIsCarrinho(!isCarrinho);
     };
 
