@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Image from "next/image";
-import { ButtonCarrinho, ButtonMenuHamburger, Buttons, ContainerModalCarrinho, Link, Logo, Menu, NavbarBody, NavbarContainer } from "./styled";
+import { ButtonCarrinho, ButtonMenuHamburger, Buttons, ContainerModalCarrinho, Finalizar, Link, Logo, Menu, NavbarBody, NavbarContainer } from "./styled";
 import ModalCarrinho from "../modalCarrinho";
 
 interface PropPesquisa {
@@ -51,6 +51,7 @@ export default function Navbar() {
                 </Buttons>
                 <ContainerModalCarrinho className={isCarrinho ? 'open' : ''}>
                     <ModalCarrinho />
+                    <Finalizar>Finalizar compra</Finalizar>
                 </ContainerModalCarrinho>
             </NavbarBody>
         </NavbarContainer>

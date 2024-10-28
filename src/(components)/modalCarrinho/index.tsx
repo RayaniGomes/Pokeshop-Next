@@ -32,7 +32,6 @@ export default function ModalCarrinho() {
                     alt="pokemon"
                 />
             </ImageProduto>
-
             <InfoProduto>
                 <h3>Nome</h3>
                 <QuantidadeProduto>
@@ -46,9 +45,8 @@ export default function ModalCarrinho() {
                             min="1"
                         />
                         <button onClick={aumentarQuantidade}>+</button>
-                        <ApagarItem className="bi bi-trash3-fill" />
                     </div>
-
+                        <ApagarItem className="bi bi-trash3-fill" />
                 </QuantidadeProduto>
             </InfoProduto>
         </CarrinhoModal>

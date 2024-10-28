@@ -124,7 +124,7 @@ export const ButtonCarrinho = styled.button`
     background: none;
     border: none;
     color: var(--claro);
-    font-size: 30px;
+    font-size: 35px;
     display: block;
 `
 
@@ -152,4 +152,17 @@ export const ContainerModalCarrinho = styled.div`
         opacity: 1;
         pointer-events: all;
     }
+
+    @media (max-width: 480px) {
+        width: 80%;
+    }
+`
+
+export const Finalizar = styled.button`
+    width: 100%;
+    margin: 5rem 0;
+    padding: .5rem;
+    border-radius: .625rem;
+    background-color: var(--escuro);
+    color: var(--claro);
 `
