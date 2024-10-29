@@ -1,64 +1,37 @@
-import { useState } from "react";
 import { ApagarItem, CarrinhoModal, Container, ImageProduto, InfoProduto, QuantidadeProduto } from "./styled";
 import Image from "next/image";
 import { useCartStore } from "@/Store/CartStore";
+import ItemCarrinho from "../itemCarrinho";
 
 export default function ModalCarrinho() {
-    const [quantidade, setQuantidade] = useState(1);
-
-    const aumentarQuantidade = () => {
-        setQuantidade(prevQuantidade => prevQuantidade + 1);
-    };
-
-    const diminuirQuantidade = () => {
-        if (quantidade > 1) {
-            setQuantidade(prevQuantidade => prevQuantidade - 1);
-        }
-    };
-
-    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const value = parseInt(e.target.value);
-        if (!isNaN(value) && value > 0) {
-            setQuantidade(value);
-        }
-    };
-
-    const { cart: cart, removeFromCard } = useCartStore();
+    const { cart: cart, removeFromCart: removeFromCard, incPrice, decPrice } = useCartStore();
 
     return (
         <Container>
-            {cart.map((item) => {
+            {cart.map((item, index) => {
                 return (
-                    <CarrinhoModal key={item.id}>
-                        <ImageProduto bgColor={item.color}>
+                    <CarrinhoModal key={item.pokemon.id}>
+                        <ImageProduto bgColor={item.pokemon.color}>
                             <Image
-                                src={item.image}
+                                src={item.pokemon.image}
                                 width={100}
                                 height={100}
-                                alt={item.name}
+                                alt={item.pokemon.name}
                             />
                         </ImageProduto>
                         <InfoProduto>
-                            <h3>{item.name}</h3>
+                            <h4>{item.pokemon.name}</h4>
+                            <h5>R${item.price}</h5>
                             <QuantidadeProduto>
-                                <h4>R${item.valorOriginal}</h4>
-                                <div className="quantidade">
-                                    <button onClick={diminuirQuantidade}>-</button>
-                                    <input
-                                        type="text"
-                                        value={quantidade}
-                                        onChange={handleInputChange}
-                                        min="1"
-                                    />
-                                    <button onClick={aumentarQuantidade}>+</button>
-                                </div>
-                                <ApagarItem className="bi bi-trash3-fill" onClick={() => removeFromCard(item.id)} />
+                                <ItemCarrinho quantidade={item.quantity} incQuanty={() => incPrice(index)} decQuanty={ () => decPrice(index)}/>
+                                <ApagarItem className="bi bi-trash3-fill" onClick={() => {
+                                    removeFromCard(item.id)
+                                }} />
                             </QuantidadeProduto>
                         </InfoProduto>
                     </CarrinhoModal>
                 )
             })}
         </Container>
-        // 
     );
 }

@@ -1,9 +1,10 @@
 'use client';
 import { useState } from "react";
 import Image from "next/image";
-import { ButtonCarrinho, ButtonMenuHamburger, Buttons, ContainerModalCarrinho, Finalizar, Logo, Menu, NavbarBody, NavbarContainer } from "./styled";
+import { ButtonCarrinho, ButtonMenuHamburger, Buttons, Contador, ContainerModalCarrinho, Finalizar, Logo, Menu, NavbarBody, NavbarContainer, Total } from "./styled";
 import ModalCarrinho from "../modalCarrinho";
 import Link from "next/link";
+import { useCartStore } from "@/Store/CartStore";
 
 interface PropPesquisa {
     pokemonPesquisa: (namePokemon: string) => void;
@@ -12,6 +13,8 @@ interface PropPesquisa {
 export default function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isCarrinho, setIsCarrinho] = useState(false);
+
+    const { count, price } = useCartStore();
 
     const toggleMenu = () => {
         if (isCarrinho) {
@@ -47,15 +50,23 @@ export default function Navbar() {
                     <Link href="/contato">Contato</Link>
                 </Menu>
                 <Buttons>
-                    <ButtonCarrinho className={isCarrinho ? 'bi bi-x' : 'bi bi-cart'} onClick={openCarrinho} />
+                    <div>
+                        <ButtonCarrinho className={isCarrinho ? 'bi bi-x' : 'bi bi-cart'} onClick={openCarrinho} />
+                        <Contador>{count}</Contador>
+                    </div>
 
                     <ButtonMenuHamburger className={isMenuOpen ? 'bi bi-x' : 'bi bi-list'} onClick={toggleMenu} />
                 </Buttons>
                 <ContainerModalCarrinho className={isCarrinho ? 'open' : ''}>
                     <ModalCarrinho />
+                    <Total>
+                        <h4>Total:</h4>
+                        <h5>{price}</h5> 
+                    </Total>
                     <Finalizar>
                         <Link href='/carrinho'>Finalizar compra</Link>
                     </Finalizar>
+
                 </ContainerModalCarrinho>
             </NavbarBody>
         </NavbarContainer>

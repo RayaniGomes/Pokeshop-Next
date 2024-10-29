@@ -35,6 +35,10 @@ export const ImageProduto = styled.div<PropsCardPokemon>`
     display: flex;
     align-items: center;
     justify-content: center;
+
+    @media (max-width: 500px) {
+        display: none;
+    }
 `
 
 export const InfoProduto = styled.div`

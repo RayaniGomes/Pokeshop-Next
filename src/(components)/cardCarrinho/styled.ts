@@ -79,6 +79,7 @@ export const DivInfo = styled.div`
     @media (max-width: 560px) {
         height: 100%;
     }
+
 `
 
 export const InfoTitle = styled.div`

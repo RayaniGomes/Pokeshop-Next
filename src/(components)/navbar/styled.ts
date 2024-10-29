@@ -128,6 +128,22 @@ export const ButtonCarrinho = styled.button`
     display: block;
 `
 
+export const Contador = styled.span`
+    position: absolute;
+    top: 50%;
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--escuro);
+    color: var(--claro);
+    font-size: 12px;
+    font-weight: 700;
+`
+
+
 export const ContainerModalCarrinho = styled.div`
     position: absolute;
     width: 450px;
@@ -156,6 +172,16 @@ export const ContainerModalCarrinho = styled.div`
     @media (max-width: 480px) {
         width: 80%;
     }
+`
+
+export const Total = styled.div`
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 2px solid var(--escuro);
+    margin-top: 2rem;
+    padding-top: 1rem;
 `
 
 export const Finalizar = styled.div`

@@ -1,8 +1,9 @@
 'use client'
-import Carrinho from './carrinho/page';
+import { useCartStore } from '@/Store/CartStore';
 import Home from './home/page';
 
 export default function Rote() {
+  const { setCart } = useCartStore();
 
   return (
     <div>

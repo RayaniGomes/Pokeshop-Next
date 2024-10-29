@@ -7,6 +7,7 @@ import { ContainerCarrinho, SubtitleCarrinho } from "./styled";
 import TotalPagar from "@/(components)/TotalPagar";
 
 export default function Carrinho() {
+    
     return (
         <main>
             <Navbar />

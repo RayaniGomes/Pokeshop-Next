@@ -11,7 +11,9 @@ interface PropsCard {
 
 export default function Card({ pokemon }: PropsCard) {
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const addToCart = useCartStore((state) => state.addToCard);
+    const addToCart = useCartStore((state) => state.addToCart);
+
+    const { inc } = useCartStore((state) => state);
 
     const handleOpenModal = () => {
         setIsModalOpen(true);
@@ -59,7 +61,10 @@ export default function Card({ pokemon }: PropsCard) {
                 </BodyInfo>
                 <FooterInfo>
                     <h4>Por: <br /> R${pokemon.valorOriginal}</h4>
-                    <button onClick={() => addToCart(pokemon)}>COMPRAR</button>
+                    <button onClick={() => {
+                        addToCart(pokemon)
+                        inc()
+                    }}>COMPRAR</button>
                 </FooterInfo>
             </InfoCard>
         </CardPokemon>
