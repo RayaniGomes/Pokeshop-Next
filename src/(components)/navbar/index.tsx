@@ -13,7 +13,6 @@ interface PropPesquisa {
 export default function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isCarrinho, setIsCarrinho] = useState(false);
-
     const { count, price } = useCartStore();
 
     const toggleMenu = () => {
@@ -30,6 +29,11 @@ export default function Navbar() {
         }
         setIsCarrinho(!isCarrinho);
     };
+
+    const formatter = new Intl.NumberFormat("pt-BR", {
+        style: "currency",
+        currency: "BRL",
+    });
 
     return (
         <NavbarContainer>
@@ -51,8 +55,9 @@ export default function Navbar() {
                 </Menu>
                 <Buttons>
                     <div>
-                        <ButtonCarrinho className={isCarrinho ? 'bi bi-x' : 'bi bi-cart'} onClick={openCarrinho} />
-                        <Contador>{count}</Contador>
+                        <ButtonCarrinho className={isCarrinho ? 'bi bi-x' : 'bi bi-cart'} onClick={openCarrinho}>
+                            <Contador>{count}</Contador>
+                        </ButtonCarrinho>
                     </div>
 
                     <ButtonMenuHamburger className={isMenuOpen ? 'bi bi-x' : 'bi bi-list'} onClick={toggleMenu} />
@@ -61,7 +66,7 @@ export default function Navbar() {
                     <ModalCarrinho />
                     <Total>
                         <h4>Total:</h4>
-                        <h5>{price}</h5> 
+                        <h5>{formatter.format(price)}</h5>
                     </Total>
                     <Finalizar>
                         <Link href='/carrinho'>Finalizar compra</Link>

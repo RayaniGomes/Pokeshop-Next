@@ -10,15 +10,22 @@ export default function CardCarrinho() {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const { cart, removeFromCart, incPrice, decPrice } = useCartStore();
 
+    const formatter = new Intl.NumberFormat("pt-BR", {
+        style: "currency",
+        currency: "BRL",
+    });
+
     const handleOpenModal = () => {
         setIsModalOpen(true);
     };
+    
     const handleCloseModal = () => {
         setIsModalOpen(false);
     };
 
     return (
         <ContainerCarrinho>
+            {cart.length === 0 && <h3>Seu carrinho está vazio</h3>}
             {cart.map((item, index) => {
                 return (
                     <DivCarrinho key={item.pokemon.id}>
@@ -51,7 +58,7 @@ export default function CardCarrinho() {
                                 ))}
                             </InfoType>
                             <InfoPreco>
-                                <h3>R${item.price}</h3>
+                                <h3>{formatter.format(item.price)}</h3>
                                 <div className="quantidade">
                                     <ItemCarrinho quantidade={item.quantity} incQuanty={() => incPrice(index)} decQuanty={() => decPrice(index)} />
                                     <Apagar className="bi bi-trash3-fill" onClick={() => {

@@ -18,10 +18,16 @@ export default function Card({ pokemon }: PropsCard) {
     const handleOpenModal = () => {
         setIsModalOpen(true);
     };
+
     const handleCloseModal = () => {
         setIsModalOpen(false);
     };
-
+    
+    const formatter = new Intl.NumberFormat("pt-BR", {
+        style: "currency",
+        currency: "BRL",
+    });
+    
     return (
         <CardPokemon>
             <ImagemCard bgColor={pokemon.color}>
@@ -60,7 +66,7 @@ export default function Card({ pokemon }: PropsCard) {
                     </Typo>
                 </BodyInfo>
                 <FooterInfo>
-                    <h4>Por: <br /> R${pokemon.valorOriginal}</h4>
+                    <h4>Por: <br />{formatter.format(pokemon.valorOriginal)}</h4>
                     <button onClick={() => {
                         addToCart(pokemon)
                         inc()

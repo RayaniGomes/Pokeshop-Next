@@ -118,6 +118,10 @@ export const ButtonMenuHamburger = styled.button`
     @media (max-width: 768px) {
         display: block;
     }
+    
+    &:hover {
+        opacity: 0.85;
+    }
 `
 
 export const ButtonCarrinho = styled.button`
@@ -126,6 +130,10 @@ export const ButtonCarrinho = styled.button`
     color: var(--claro);
     font-size: 35px;
     display: block;
+
+    &:hover {
+        opacity: 0.8;
+    }
 `
 
 export const Contador = styled.span`
