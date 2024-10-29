@@ -2,13 +2,12 @@
 import { useState } from "react";
 import Image from "next/image";
 import { Apagar, ContainerCarrinho, DivCarrinho, DivImage, DivInfo, InfoPreco, InfoTitle, InfoType, Quantidade } from "./styled";
-import { types } from "@/data/helps";
-import { useCardStore } from "@/Store/CardStore";
+import { useCartStore } from "@/Store/CartStore";
 
 export default function CardCarrinho() {
     const [quantidade, setQuantidade] = useState(1);
 
-    const { card, removeFromCard } = useCardStore();
+    const { cart: cart, removeFromCard } = useCartStore();
 
     const aumentarQuantidade = () => {
         setQuantidade(prevQuantidade => prevQuantidade + 1);
@@ -29,11 +28,11 @@ export default function CardCarrinho() {
 
     return (
         <ContainerCarrinho>
-            {card.map((item) => {
+            {cart.map((item) => {
                 console.log(item);
                 return (
                     <DivCarrinho key={item.id}>
-                        <DivImage>
+                        <DivImage bgColor={item.color}>
                             <Image
                                 src={item.image}
                                 width={200}
@@ -73,7 +72,7 @@ export default function CardCarrinho() {
                                         />
                                         <button onClick={aumentarQuantidade}>+</button>
                                     </Quantidade>
-                                    <Apagar className="bi bi-trash3-fill" onClick={() => removeFromCard(item.id)}/>
+                                    <Apagar className="bi bi-trash3-fill" onClick={() => removeFromCard(item.id)} />
                                 </div>
                             </InfoPreco>
                         </DivInfo>

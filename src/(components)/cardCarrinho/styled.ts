@@ -3,7 +3,9 @@ import styled from "styled-components";
 export const ContainerCarrinho = styled.div`
     width: 100%;
     display: flex;
+    align-items: center;
     justify-content: center;
+    flex-direction: column;
     gap: 1rem;
 `
 
@@ -34,24 +36,19 @@ export const DivCarrinho = styled.div`
     }
 `
 
-export const DivImage = styled.div`
+interface PropsCardPokemon {
+    bgColor: string;
+}
+
+export const DivImage = styled.div<PropsCardPokemon>`
     width: 200px;
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: var(--escuro);
+    background-color: ${({ bgColor }) => bgColor || "var(--escuro)"};
     border-radius: .625rem;
     box-shadow: 5px 5px 10px 0px #00000040;
-
-    img {
-        position: absolute;
-        width: 250px;
-        height: 250px;
-        object-fit: cover;
-        border-radius: .625rem;
-    }
-
     @media (max-width: 768px) {
         width: 180px;
 

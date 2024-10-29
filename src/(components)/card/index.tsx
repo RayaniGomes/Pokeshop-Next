@@ -3,7 +3,7 @@ import { BodyInfo, CardPokemon, FooterInfo, ImagemCard, InfoCard, TitleCard, Typ
 import Image from "next/image";
 import { useState } from "react";
 import ModalCard from "../modalPokemon";
-import { useCardStore } from "@/Store/CardStore";
+import { useCartStore } from "@/Store/CartStore";
 
 interface PropsCard {
     pokemon: PokemonDetails,
@@ -11,7 +11,7 @@ interface PropsCard {
 
 export default function Card({ pokemon }: PropsCard) {
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const addToCart = useCardStore((state) => state.addToCard);
+    const addToCart = useCartStore((state) => state.addToCard);
 
     const handleOpenModal = () => {
         setIsModalOpen(true);

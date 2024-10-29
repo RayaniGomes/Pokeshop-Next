@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { ApagarItem, CarrinhoModal, Container, ImageProduto, InfoProduto, QuantidadeProduto } from "./styled";
 import Image from "next/image";
-import { useCardStore } from "@/Store/CardStore";
+import { useCartStore } from "@/Store/CartStore";
 
 export default function ModalCarrinho() {
     const [quantidade, setQuantidade] = useState(1);
@@ -23,14 +23,14 @@ export default function ModalCarrinho() {
         }
     };
 
-    const { card, removeFromCard } = useCardStore();
+    const { cart: cart, removeFromCard } = useCartStore();
 
     return (
         <Container>
-            {card.map((item) => {
+            {cart.map((item) => {
                 return (
                     <CarrinhoModal key={item.id}>
-                        <ImageProduto>
+                        <ImageProduto bgColor={item.color}>
                             <Image
                                 src={item.image}
                                 width={100}
@@ -52,7 +52,7 @@ export default function ModalCarrinho() {
                                     />
                                     <button onClick={aumentarQuantidade}>+</button>
                                 </div>
-                                <ApagarItem className="bi bi-trash3-fill" onClick={() => removeFromCard(item.id)}/>
+                                <ApagarItem className="bi bi-trash3-fill" onClick={() => removeFromCard(item.id)} />
                             </QuantidadeProduto>
                         </InfoProduto>
                     </CarrinhoModal>

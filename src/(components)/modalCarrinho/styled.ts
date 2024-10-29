@@ -22,11 +22,16 @@ export const CarrinhoModal = styled.div`
     }
 `
 
-export const ImageProduto = styled.div`
-    width: 80px;
-    height: 100px;
+interface PropsCardPokemon {
+    bgColor: string;
+}
+
+export const ImageProduto = styled.div<PropsCardPokemon>`
+    width: 100%;
+    height: 100%;
+    padding: .5rem;
     border-radius: .625rem;
-    background-color: var(--escuro);
+    background-color: ${({ bgColor }) => bgColor || "var(--escuro)"};
     display: flex;
     align-items: center;
     justify-content: center;
