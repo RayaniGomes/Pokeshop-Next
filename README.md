@@ -1,36 +1,54 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# PokéShop
 
-## Getting Started
+## 📌 Sobre o Projeto
+> PokéShop é uma plataforma interativa de e-commerce com temática Pokémon, desenvolvida para 
+> demonstrar na prática meus conhecimentos em tecnologias modernas como Next.js, Zustand, 
+> autenticação com NextAuth, entre outras.
+> 
+> O sistema simula uma loja virtual onde é possível visualizar pokémons, acessar detalhes e 
+> adicioná-los ao carrinho — ideal para estudos, portfólio e aprendizado prático com frontend e 
+> backend integrados.
 
-First, run the development server:
+![Home Page](image.png)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🚀 Tecnologias Utilizadas
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- [Axios](https://axios-http.com/ptbr/docs/intro)
+- [Bootstrap Icons](https://icons.getbootstrap.com/)
+- [Embla Carousel](https://www.embla-carousel.com/)
+- [NextJs](https://nextjs.org)
+- [React](https://reactjs.org)
+- [React Bootstrap](https://react-bootstrap.netlify.app/)
+- [Styled Components](https://styled-components.com)
+- [Zustand](https://zustand-demo.pmnd.rs/)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 📦 Instalação e Configuração
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Instruções de como rodar o projeto:
 
-## Learn More
+1. Clone o projeto em sua maquina seguindo o modo que você achar melhor;
+2. Instale as dependências:
 
-To learn more about Next.js, take a look at the following resources:
+   ```sh
+       npm install
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+3. Inicie o servidor de desenvolvimento:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+   ```sh
+      npm run dev
+   ```
 
-## Deploy on Vercel
+5. Seu projeto já deve está rodando em localhost.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🖼️ Layout
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+O layout desenvolvido segue um [Figma](https://www.figma.com/design/Qg65ABIOXa3neGXTh9RCCP/Pok%C3%A9Shop?t=z6YE46LbIX335AoP-1) disponibilizado por mim.
+
+## 🚀 Deploy
+
+O projeto utiliza o deploy da [Versel](https://vercel.com), para visualizar o mesmo, por favor [clique aqui!](https://evently-hub.vercel.app/)
+
+## 📝 Licença
+
+[MIT License](https://github.com/RayaniGomes/Evently/blob/main/LICENSE) © [Rayani Gomes](https://github.com/RayaniGomes)
