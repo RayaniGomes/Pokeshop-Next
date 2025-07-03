@@ -45,7 +45,7 @@ O layout desenvolvido segue um [Figma](https://www.figma.com/design/Qg65ABIOXa3n
 
 ## 🚀 Deploy
 
-O projeto utiliza o deploy da [Versel](https://vercel.com), para visualizar o mesmo, por favor [clique aqui!](https://evently-hub.vercel.app/)
+O projeto utiliza o deploy da [Versel](https://vercel.com), para visualizar o mesmo, por favor [clique aqui!](https://pokeshop-next.vercel.app/)
 
 ## 📝 Licença
 
