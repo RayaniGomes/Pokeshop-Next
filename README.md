@@ -2,12 +2,10 @@
 
 ## 📌 Sobre o Projeto
 > PokéShop é uma plataforma interativa de e-commerce com temática Pokémon, desenvolvida para 
-> demonstrar na prática meus conhecimentos em tecnologias modernas como Next.js, Zustand, 
-> autenticação com NextAuth, entre outras.
+> demonstrar na prática meus conhecimentos em tecnologias modernas como Next.js.
 > 
 > O sistema simula uma loja virtual onde é possível visualizar pokémons, acessar detalhes e 
-> adicioná-los ao carrinho — ideal para estudos, portfólio e aprendizado prático com frontend e 
-> backend integrados.
+> adicioná-los ao carrinho.
 
 ![Home Page](image.png)
 
